@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="tab">
+        <ul>
+            <li class="active">
+                <h2>1</h2>
+            </li>
+            <li>
+                <h2>2</h2>
+            </li>
+            <li>
+                <h2>3</h2>
+            </li>
+            <li>
+                <h2>4</h2>
+            </li>
+            <li>
+                <h2>5</h2>
+            </li>
+        </ul>
+
+        <div class="text"></div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var arr = ["1", "2", "3", "4", "5"];
+        var oDiv = document.getElementById("tab");
+        var aLi = oDiv.getElementsByTagName("li");
+        var oText = oDiv.getElementsByTagName("div")[0];
+        for (let i = 0; i < aLi.length; i++) {
+            const li = aLi[i];
+            li.onclick = function () {
+                for (let index = 0; index < aLi.length; index++) {
+                    const element = aLi[index];
+                    element.className = '';
+                }
+                this.className = 'active';
+                oText.innerHTML = '<p>123' + arr[i] + '</p>';
+            }
+        }
+    }
+</script>
+<style>
+    .active {
+        background-color: aquamarine;
+    }
+</style>
+
+</html>
+
+
+

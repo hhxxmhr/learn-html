@@ -1,0 +1,165 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试标签效果</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <style>
+        .enlargeImg_wrapper {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: rgba(52, 52, 52, 0.8);
+            background-size: 50%;
+        }
+
+        img:hover {
+            cursor: zoom-in;
+        }
+
+        .enlargeImg_wrapper:hover {
+            cursor: zoom-out;
+        }
+    </style>
+</head>
+
+<body>
+    <ruby>
+        汉<rp>(</rp><rt>han</rt><rp>)</rp>
+        字<rp>(</rp><rt>zi</rt><rp>)</rp>
+        </ruby>
+
+        <p>床前明月光，<bdo dir="rtl">霜上地是疑</bdo>。</p>
+
+        
+    <img class="enlargeImg" width="80" src="http://img.ivsky.com/img/tupian/pre/201706/26/weimei_de_huashu-003.jpg" title="点击查看大图" />
+    <img class="enlargeImg" width="80" src="http://img.ivsky.com/img/tupian/pre/201706/26/weimei_de_huashu-003.jpg" title="点击查看大图" />
+    <img class="enlargeImg" width="80" src="http://img.ivsky.com/img/tupian/pre/201706/26/weimei_de_huashu-003.jpg" title="点击查看大图" />
+
+    <p>hello<img class="enlargeImg" width="80"  src="http://img.ivsky.com/img/tupian/pre/201706/26/weimei_de_huashu-003.jpg">world</p>
+    <a href="www.baidu.com">
+        <img class="enlargeImg" width="80" src="http://img.ivsky.com/img/tupian/pre/201706/26/weimei_de_huashu-003.jpg" title="点击查看大图" />
+    </a>
+
+    <a href="mailto:contact@example.com">联系我们</a>
+
+    <a href="tel:13312345678">13312345678</a>
+
+    <form>
+        <fieldset>
+          <p>年龄：<input type="text" name="age"></p>
+          <p>性别：<input type="text" name="gender"></p>
+        </fieldset>
+        <fieldset>
+            <p>哈哈<input type="text" name="age"></p>
+            <p>单叮<input type="text" name="gender"></p>
+          </fieldset>
+          <label for="哈哈哈" >用户名：</label>
+          <input name="user" id="哈哈哈" type="search">
+          <input type="range" list="tickmarks">
+
+<datalist id="tickmarks">
+  <option value="0" label="0%">
+  <option value="10">
+  <option value="20">
+  <option value="30">
+  <option value="40">
+  <option value="50" label="50%">
+  <option value="60">
+  <option value="70">
+  <option value="80">
+  <option value="90">
+  <option value="100" label="100%">
+</datalist>
+<input type="color" id="background" name="background"
+           value="#e66465">
+           <input type="date" id="start" name="start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
+
+       <label>宠物：
+        <select name="pets" multiple size="4">
+          <optgroup label="四条腿的宠物">
+            <option value="dog">狗</option>
+            <option value="cat">猫</option>
+          </optgroup>
+          <optgroup label="鸟类">
+            <option value="parrot">鹦鹉</option>
+            <option value="thrush">画眉</option>
+          </optgroup>
+        </select>
+      </label>
+      
+
+
+      <label for="ice-cream-choice">冰淇淋：</label>
+<input type="text" list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice">
+
+<datalist id="ice-cream-flavors">
+  <option value="巧克力">
+  <option value="椰子">
+  <option value="薄荷">
+  <option value="草莓">
+  <option value="香草">
+</datalist>
+
+
+<input type="number" name="a" value="10"> +
+<input type="number" name="b" value="10"> =
+<output name="result">20</output>
+
+
+<progress id="file" max="100" value="70"> 70% </progress>
+
+<p>烤箱的当前温度是<meter min="200" max="500"
+    value="350"> 350 度</meter>。</p>
+  
+    <meter id="fuel" name="fuel"
+    min="0" max="100"
+    low="33" high="66" optimum="80"
+    value="50">
+ at 50/100
+</meter>
+<dialog open>
+    Hello world
+  </dialog>
+  <details>
+    这是一段解释文本。
+    </details>
+    <details>
+        <summary>这是标题</summary>
+        这是一段解释文本。
+      </details>
+      
+
+      </form>
+      
+
+    <script type="text/javascript">
+        $(function () {
+            enlargeImg();
+        })
+        //查看大图
+        function enlargeImg() {
+            $(".enlargeImg").click(function () {
+                $(this).after("<div onclick='closeImg()' class='enlargeImg_wrapper'></div>");
+                var imgSrc = $(this).attr('src');
+                $(".enlargeImg_wrapper").css("background-image", "url(" + imgSrc + ")");
+                $('.enlargeImg_wrapper').fadeIn(200);
+            })
+        }
+        //关闭并移除图层
+        function closeImg() {
+            $('.enlargeImg_wrapper').fadeOut(200).remove();
+        }
+    </script>
+</body>
+
+</html>
