@@ -26,8 +26,19 @@
                 <h2>5</h2>
             </li>
         </ul>
-
         <div class="text"></div>
+    </div>
+    <hr>
+    <div id="second">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
 </body>
 <script>
@@ -44,9 +55,21 @@
                     element.className = '';
                 }
                 this.className = 'active';
-                oText.innerHTML = '<p>123' + arr[i] + '</p>';
+                oText.innerHTML = '<p>12453' + arr[i] + '</p>';
             }
         }
+
+        var oSecond = document.getElementById("second");
+        var aLis = oSecond.getElementsByTagName("li");
+        for (let index = 0; index < aLis.length; index++) {
+            const element = aLis[index];
+            if (index % 2 == 0) {
+                element.style.background = 'pink';
+            } else {
+                element.style.background = 'orange';
+            }
+        }
+
     }
 </script>
 <style>
@@ -56,6 +79,3 @@
 </style>
 
 </html>
-
-
-

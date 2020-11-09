@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* 让物体运动起来，就是修改他的left和top，没有绝对定位修改这2个属性的话，是没有效果的 */
+            position: absolute;
+            left: 0px;
+            top: 50px;
+        }
+    </style>
+    <script>
+        setInterval(timer, 30);
+        function timer() {
+            var oDiv = document.getElementById("div1");
+            oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1" onclick="alert(this.offsetLeft)">
+    </div>
+
+</body>
+
+</html>
