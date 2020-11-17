@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匀速运动的停止条件</title>
+</head>
+<style>
+    #div1 {
+        width: 1px;
+        height: 500px;
+        background: black;
+        position: absolute;
+        left: 100px;
+        top: 0;
+    }
+
+    #div2 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 600px;
+        top: 50px;
+    }
+</style>
+<script>
+    function startMove(iTarget) {
+        let oDiv = document.getElementById("div2");
+
+        timer = setInterval(function () {
+            let speed = 0;
+            if (oDiv.offsetLeft < iTarget) {
+                speed = 7;
+            } else {
+                speed = -7;
+            }
+            if (Math.abs(iTarget - oDiv.offsetLeft) < 7) {
+                clearInterval(timer);
+                oDiv.style.left = iTarget + 'px';
+            } else {
+                oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+
+            }
+        }, 30)
+    }
+</script>
+<body>
+<input type="button" value="运动" onclick="startMove(100)">
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

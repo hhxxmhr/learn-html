@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建/删除元素</title>
+</head>
+<body>
+<input type="text" id="text">
+<input type="button" id="btn" value="创建">
+<ul id="ul"></ul>
+</body>
+<script>
+    window.onload = function () {
+        let btn = document.getElementById("btn");
+        let ul = document.getElementById("ul");
+
+        btn.onclick = function () {
+            let li = document.createElement("li");
+            let ali = ul.getElementsByTagName("li");
+            li.innerHTML = document.getElementById("text").value + '<a href="javascript:;">删除</a>';
+            // 父节点.appendChild(子节点);  子节点添加到最尾
+            // ul.appendChild(li);
+
+            if (ali.length > 0) {
+                // 在某一位置前插入
+                ul.insertBefore(li, ali[0])
+            } else {
+                ul.appendChild(li);
+            }
+            // 删除子节点
+            let aA = document.getElementsByTagName("a");
+            if (aA.length > 0) {
+                for (let i = 0; i < aA.length; i++) {
+                    aA[i].onclick = function () {
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    }
+</script>
+</html>

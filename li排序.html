@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>li排序</title>
+    <script>
+        window.onload = function () {
+            let oUl1 = document.getElementById("ul1");
+            let oBtn = document.getElementById("btn1");
+            oBtn.onclick = function () {
+                oUl1.appendChild(oUl1.children[0]);
+            }
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<input id="btn1" type="button" value="移动">
+</body>
+</html>
