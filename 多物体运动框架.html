@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多物体运动框架</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            border: 10px solid red;
+            margin: 20px;
+            float: left;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let oDiv1 = document.getElementById("div1");
+            oDiv1.onmouseover = function () {
+                startMove(this, 'height', 400);
+            }
+            oDiv1.onmouseout = function () {
+                startMove(this, 'height', 200);
+            }
+            let oDiv2 = document.getElementById("div2");
+            oDiv2.onmouseover = function () {
+                startMove(this, 'width', 400);
+            }
+            oDiv2.onmouseout = function () {
+                startMove(this, 'width', 200);
+            }
+            let oDiv3 = document.getElementById("div3");
+            oDiv3.onmouseover = function () {
+                startMove(this, 'fontSize', 50);
+            }
+            oDiv3.onmouseout = function () {
+                startMove(this, 'fontSize', 14);
+            }
+            let oDiv4 = document.getElementById("div4");
+            oDiv4.onmouseover = function () {
+                startMove(this, 'borderWidth', 1);
+            }
+            oDiv4.onmouseout = function () {
+                startMove(this, 'borderWidth', 10);
+            }
+        }
+
+        function startMove(obj, attr, iTarget) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                let currentStyle = parseInt(getStyle(obj, attr));
+                let speed = (iTarget - currentStyle) / 6;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                if (currentStyle === iTarget) {
+                    clearInterval(obj.timer);
+                } else {
+                    obj.style[attr] = currentStyle + speed + 'px';
+                }
+            }, 30);
+        }
+
+        function getStyle(obj, name) {
+            if (obj.currentStyle) {
+                return obj.currentStyle[name];
+            } else {
+                return getComputedStyle(obj, false)[name];
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1">变宽</div>
+<div id="div2">变高</div>
+<div id="div3">字变大</div>
+<div id="div4">border变大</div>
+</body>
+</html>

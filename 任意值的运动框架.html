@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任意值的运动框架</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            border: 10px solid red;
+            margin: 20px;
+            float: left;
+            font-size: 14px;
+            filter: alpha(opacity:30);
+            opacity: 0.3;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let oDiv1 = document.getElementById("div1");
+            oDiv1.onmouseover = function () {
+                startMove(this, 'opacity', 100);
+            }
+            oDiv1.onmouseout = function () {
+                startMove(this, 'opacity', 30);
+            }
+        }
+
+        function startMove(obj, attr, iTarget) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                let currentStyle = 0;
+                if (attr === 'opacity') {
+                    currentStyle = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                } else {
+                    currentStyle = parseInt(getStyle(obj, attr));
+                }
+                let speed = (iTarget - currentStyle) / 6;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                if (currentStyle === iTarget) {
+                    clearInterval(obj.timer);
+                } else {
+                    if (attr === 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + currentStyle + ')';
+                        obj.style[attr] = (currentStyle + speed) / 100;
+                    } else {
+                        obj.style[attr] = currentStyle + speed + 'px';
+                    }
+                }
+            }, 30);
+        }
+        function getStyle(obj, name) {
+            if (obj.currentStyle) {
+                return obj.currentStyle[name];
+            } else {
+                return getComputedStyle(obj, false)[name];
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1">变透明度</div>
+</body>
+</html>

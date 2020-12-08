@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一串跟着鼠标的div</title>
+    <style>
+        div {
+            width: 5px;
+            height: 5px;
+            background: pink;
+            position: absolute;
+        }
+    </style>
+    <script>
+        function getPos(ev) {
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            let scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+            return {x: ev.clientX + scrollLeft, y: ev.clientY + scrollTop}
+        }
+
+        document.onkeydown = function (ev) {
+            let oEvent = ev || event;
+            alert(oEvent.keyCode);
+        }
+        document.onmousemove = function (ev) {
+            let aDiv = document.getElementsByTagName('div');
+            let oEvent = ev || event;
+            let pos = getPos(oEvent);
+            for (let i = aDiv.length - 1; i > 0; i--) {
+                aDiv[i].style.left = aDiv[i - 1].offsetLeft + 'px';
+                aDiv[i].style.top = aDiv[i - 1].offsetTop + 'px';
+            }
+            aDiv[0].style.left = pos.x + 'px';
+            aDiv[0].style.top = pos.y + 'px';
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

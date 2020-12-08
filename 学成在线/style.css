@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*版心*/
+.w {
+    width: 1200px;
+    margin: auto;
+}
+
+/*清楚浮动-box那个框因为不知道里面会有多少个li,所以没有给高度，
+又因为它里面的内容都是浮动的，所以这个box 的高度就是0，
+如果继续往下写div,就会贴着这个box一行*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.header {
+    height: 42px;
+    /*注意此处会层叠w里面的margin，所以只有上下距离，左右还是居中的*/
+    margin: 30px auto;
+}
+
+.logo {
+    float: left;
+    width: 198px;
+    height: 42px;
+    background-color: palegreen;
+}
+
+.nav {
+    float: left;
+    margin-left: 60px;
+}
+
+.nav ul li {
+    float: left;
+    margin: 0 15px;
+}
+
+.nav ul li a {
+    display: inline-block;
+    height: 42px;
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #050505;
+}
+
+.nav ul li a:hover {
+    border-bottom: 2px solid rgb(255, 171, 72);
+    color: rgb(255, 171, 72);
+}
+
+.search {
+    float: left;
+    width: 411px;
+    height: 42px;
+    margin-left: 70px;
+    background-color: #999999;
+}
+
+.search input {
+    float: left;
+    width: 345px;
+    height: 40px;
+    color: #999999;
+    font-size: 14px;
+    padding-left: 15px;
+    border: 1px solid rgb(255, 171, 72);
+    border-right: 0;
+}
+
+.search button {
+    float: left;
+    width: 50px;
+    height: 42px;
+    border: 0;
+    background-image: url("images/cow.png");
+}
+
+.user {
+    float: right;
+    line-height: 42px;
+    margin-right: 30px;
+    font-size: 14px;
+    color: #666666;
+}
+
+.banner {
+    height: 421px;
+    background-color: rgb(255, 171, 72);
+}
+
+.banner .w {
+    height: 421px;
+    background: url("images/banner.png") no-repeat top center;
+}
+
+.sub-nav {
+    float: left;
+    width: 190px;
+    height: 421px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sub-nav ul li {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+}
+
+.sub-nav ul li a {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.sub-nav ul li a:hover {
+    color: rgb(255, 171, 72);
+}
+
+.sub-nav ul li a span {
+    float: right;
+}
+
+.course {
+    float: right;
+    width: 230px;
+    height: 300px;
+    /*浮动的盒子不会有内边距合并的问题*/
+    margin-top: 50px;
+    background-color: #ffffff;
+}
+
+.course > h4 {
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    background-color: #ff6890;
+}
+
+.bd {
+    padding: 0 20px;
+}
+
+.bd ul li {
+    padding: 14px 0;
+    border-bottom: 1px solid #cccccc;
+}
+
+.bd ul li h4 {
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+.bd ul li p {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.bd .more {
+    display: block;
+    height: 38px;
+    border: 1px solid #ff6890;
+    margin-top: 5px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 38px;
+    color: deepskyblue;
+    font-weight: 700;
+}
+
+.goods {
+    height: 60px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    /*行高汇集成给三个孩子*/
+    line-height: 60px;
+    box-shadow: 0 2px 3px 3px rgba(0, 0, 0, .1);
+}
+
+.goods h3 {
+    float: left;
+    font-size: 16px;
+    color: rgb(255, 171, 72);
+    margin-left: 30px;
+}
+
+.goods ul {
+    float: left;
+    margin-left: 30px;
+}
+
+.goods ul li {
+    float: left;
+}
+
+.goods ul li a {
+    padding: 0 30px;
+    font-size: 16px;
+    color: #050505;
+    border-left: 1px solid #cccccc;
+}
+
+.goods .mod {
+    float: right;
+    margin-right: 30px;
+    font-size: 14px;
+    color: rgb(255, 171, 72);
+}
+
+.box {
+    margin-top: 30px;
+}
+
+.box .hd {
+    height: 45px;
+    line-height: 45px;
+}
+
+.box .hd h3 {
+    float: left;
+    font-size: 20px;
+    color: #494949;
+}
+
+.box .hd a {
+    float: right;
+    font-size: 12px;
+    color: #a5a5a5;
+    margin-right: 30px;
+}
+
+.box-bd ul {
+    /*一行放不下5个li的时候，就调整ul的宽度让他可以容纳 (228+15)*5*/
+    width: 1215px;
+}
+
+.box-bd ul li {
+    /*子绝父相*/
+    position: relative;
+    float: left;
+    width: 228px;
+    height: 270px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+}
+
+.cow {
+    width: 100%;
+    height: 60%;
+}
+
+.hot {
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    right: -4px;
+}
+
+.box-bd ul li h4 {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 15px;
+    /*margin: 15px;*/
+    color: #050505;
+}
+
+.box-bd ul li .info {
+    padding: 0 15px 0 15px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.box-bd ul li .info span {
+    color: #ff8500;
+}
+
+/*li的父元素ul没有给高度，又设置了li是浮动的，脱离了标准流不占位置，ul的高度就变为0，
+所以下面的盒子就会跑到他的底下去，
+于是就给浮动的元素的父元素添加清除浮动*/
+.footer {
+    height: 415px;
+    background-color: #ffffff;
+}
+
+.footer .w {
+    /*此处不能使用margin-top，会出现父子盒子外边距合并塌陷，父级边框往下移动，而不是子框距离父框*/
+    /*margin-top: 15px;*/
+    padding-top: 15px;
+}
+
+.copyright {
+    float: left;
+}
+
+.copyright img {
+    width: 152px;
+    height: 88px;
+}
+
+.copyright p {
+    font-size: 14px;
+    color: #666666;
+    margin: 10px 0 15px 0;
+}
+
+.copyright .app {
+    display: block;
+    width: 118px;
+    height: 33px;
+    border: 1px solid #ff8500;
+    line-height: 33px;
+    text-align: center;
+    color: #ff8500;
+    font-size: 16px;
+}
+
+.links {
+    float: right;
+}
+
+.links dl {
+    float: left;
+    margin-left: 30px;
+}
+
+.links dl dt {
+    font-size: 16px;
+    color: #050505;
+    margin-bottom: 10px;
+}
+
+.links dl dd {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 5px;
+}
+
+.left-advise {
+    position: fixed;
+    top: 200px;
+    left: 0;
+    width: 100px;
+    height: 200px;
+    background-color: pink;
+}
+
+.right-advise {
+    position: fixed;
+    top: 200px;
+    right: 0;
+    width: 100px;
+    height: 200px;
+    background-color: pink;
+}
+
+.bx-advise {
+    position: fixed;
+    /*可视区的一半*/
+    left: 50%;
+    /*版心的一半宽度*/
+    margin-left: 600px;
+    top: 200px;
+    width: 50px;
+    height: 150px;
+    background-color: palegreen;
+}

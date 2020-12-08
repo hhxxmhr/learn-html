@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动布局1</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .box {
+        margin: 100px auto;
+        width: 1226px;
+        height: 285px;
+        background-color: #ff8500;
+    }
+
+    .box li {
+        width: 296px;
+        height: 285px;
+        background-color: purple;
+        float: left;
+        margin-right: 14px;
+    }
+
+    /*要注意权重的问题 20，单独写.last 就没法奏效*/
+    .box .last {
+        margin-right: 0;
+    }
+
+    .test {
+        margin: 100px auto;
+        width: 300px;
+        height: 100px;
+        background-color: red;
+    }
+
+    .test p {
+        /*width: 100%;*/
+        padding: 30px;
+        background-color: skyblue;
+    }
+</style>
+<script>
+    function aaa() {
+        let arr = [22, 33, 55, 89, 88];
+        let numbers = arr.splice(2, 1);
+        console.log(arr);
+    }
+</script>
+<body>
+<div class="box">
+    <ul>
+        <li onclick="aaa()">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li class="last">4</li>
+    </ul>
+</div>
+<div class="test">
+    <p></p>
+</div>
+</body>
+</html>
