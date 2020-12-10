@@ -198,7 +198,7 @@ a {
     height: 60px;
     background-color: #ffffff;
     margin-top: 10px;
-    /*行高汇集成给三个孩子*/
+    /*行高会继承给三个孩子*/
     line-height: 60px;
     box-shadow: 0 2px 3px 3px rgba(0, 0, 0, .1);
 }
