@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>综合demo</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 160px;
+        height: 42px;
+        border: 1px solid red;
+        margin: 100px auto;
+        line-height: 42px;
+        text-align: center;
+    }
+
+    .first {
+        /*子绝父相*/
+        position: relative;
+        /*让行内元素拥有了行内块的特性，可以设置宽高了*/
+        /*行内元素的宽高由内容决定，不继承父元素的；块级元素只继承块级父元素的宽度，不继承高度；但是line-height这个属性是可以继承的*/
+        /*文字环绕*/
+        float: left;
+        width: 90px;
+        height: 100%;
+        background-color: red;
+    }
+
+    .sanjiao {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 0;
+        height: 0;
+        /*border-top: 100px solid transparent;
+        border-right: 50px solid skyblue;
+        border-bottom: 0 solid blue;
+        border-left: 0 solid green;*/
+        border-color: transparent white blue green;
+        border-style: solid;
+        border-width: 42px 15px 0 0;
+    }
+</style>
+<body>
+<div class="box">
+    <span class="first">
+        ￥1987
+    <i class="sanjiao"></i>
+    </span>
+    <span>￥2009</span>
+</div>
+</body>
+</html>

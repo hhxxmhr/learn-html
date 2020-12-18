@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行内块巧妙运用</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        /*行内元素和行内块元素都水平居中*/
+        text-align: center;
+    }
+
+    .box a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        background-color: #eeeeee;
+        text-align: center;
+        line-height: 35px;
+        text-decoration: none;
+        color: #333333;
+        border: 1px solid #cccccc;
+        font-size: 14px;
+    }
+
+    .box .prev, .box .next {
+        width: 85px;
+    }
+
+    .box .curr, .box .elp {
+        border: none;
+        background-color: #ffffff;
+    }
+
+    input {
+        width: 36px;
+        height: 35px;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        outline: none;
+    }
+
+    button {
+        width: 60px;
+        height: 35px;
+        color: #333333;
+        border: 1px solid #cccccc;
+        font-size: 14px;
+    }
+
+</style>
+<body>
+<div class="box">
+    <a href="#" class="prev">&lt;&lt;上一页</a>
+    <a href="#" class="curr">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#" class="elp">...</a>
+    <a href="#" class="next">&gt;&gt;下一页</a>
+    到第
+    <input type="text">
+    页
+    <button>确定</button>
+</div>
+</body>
+</html>

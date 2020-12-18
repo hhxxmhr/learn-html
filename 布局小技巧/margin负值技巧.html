@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margin负值技巧</title>
+</head>
+<style>
+    ul li {
+        position: relative;
+        float: left;
+        width: 150px;
+        height: 200px;
+        background-color: pink;
+        list-style: none;
+        border: 1px solid red;
+        /*这样相邻的border值 1+1=1，不会重合更粗*/
+        margin-left: -1px;
+    }
+
+    /*ul li:hover {
+        !*如果没有定位，则使用相对定位*!
+        position: relative;
+        border: 1px solid skyblue;
+    }*/
+    ul li:hover {
+        /*如果使用定位了，则提高他的层级*/
+        z-index: 1;
+        border: 1px solid skyblue;
+    }
+</style>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

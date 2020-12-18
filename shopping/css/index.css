@@ -1,0 +1,91 @@
+.main {
+    /*1200-210-10*/
+    width: 980px;
+    height: 455px;
+    margin-left: 220px;
+    margin-top: 10px;
+}
+
+.main .focus {
+    float: left;
+    width: 720px;
+    height: 455px;
+    background-color: #ff8500;
+}
+
+.main .news_flash {
+    float: right;
+    width: 250px;
+    height: 455px;
+}
+
+.news_flash .news {
+    height: 165px;
+    border: 1px solid #e4e4e4;
+}
+
+.news .news_hd {
+    height: 33px;
+    line-height: 33px;
+    border-bottom: 1px dotted #e4e4e4;
+    padding: 0 15px;
+}
+
+.news_hd h5 {
+    float: left;
+    font-size: 14px;
+}
+
+.news_hd .more {
+    float: right;
+}
+
+.news_hd .more::after {
+    font-family: "iconfont";
+    content: '\e6a7';
+}
+
+.news_bd {
+    padding: 5px 0 0 15px;
+}
+
+.news_bd ul li {
+    height: 24px;
+    line-height: 24px;
+    /*文字超出隐藏，一行显示，省略号代替*/
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.news_flash .life_service {
+    height: 209px;
+    border: 1px solid #e4e4e4;
+    border-top: 0;
+    /*ul 设置的宽度会溢出2px,所以直接隐藏掉不显示*/
+    overflow: hidden;
+}
+
+/*小li的宽度63，一行放4个，现在250的宽度肯定放不下，所以换行了。
+  因此可是设置ul的宽度，使得可以一行放得下四个  4*63*/
+.life_service ul {
+    width: 252px;
+}
+
+.life_service ul li {
+    float: left;
+    width: 63px;
+    height: 71px;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    /*可以将里面的行内块元素水平居中显示*/
+    text-align: center;
+}
+
+.life_service ul li i {
+    display: inline-block;
+}
+
+.news_flash .bargain {
+    margin-top: 5px;
+}

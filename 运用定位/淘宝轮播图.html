@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝轮播图</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .tb-promo {
+        position: relative;
+        width: 1072px;
+        height: 600px;
+        margin: 100px auto;
+        background-color: pink;
+
+    }
+
+    .tb-promo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .tb-promo::before {
+        /*隐藏遮罩层*/
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .3) url(../img/p.png) no-repeat center;
+        z-index: 2;
+    }
+
+    /*当鼠标经过 图片，就让遮罩层显示出来*/
+    .tb-promo:hover::before {
+        display: block;
+    }
+
+    /*并集选择器*/
+    .prev, .next {
+        /*绝对定位的盒子可以设置宽高，并且不占有位置；与此同时需要子绝父相*/
+        position: absolute;
+        /*设置高度显示*/
+        top: 50%;
+        margin-top: -15px;
+        /*a标签是行内元素，无法设置高度和宽度*/
+        width: 20px;
+        height: 30px;
+        background-color: rgba(0, 0, 0, .5);
+        text-align: center;
+        line-height: 30px;
+        text-decoration: none;
+        color: #ffffff;
+        z-index: 1;
+    }
+
+    .prev {
+        left: 0;
+        /*设置两个角为圆角*/
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .next {
+        right: 0;
+        /*设置两个角为圆角*/
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+
+    .promo-nav {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        margin-left: -35px;
+        width: 70px;
+        height: 13px;
+        background-color: rgba(255, 255, 255, .3);
+        border-radius: 7px;
+        z-index: 1;
+    }
+
+    .promo-nav li {
+        float: left;
+        width: 8px;
+        height: 8px;
+        margin: 3px;
+        background-color: #ffffff;
+        border-radius: 4px;
+    }
+
+    /*不要忘记权重的问题*/
+    .promo-nav .selected {
+        background-color: #ff8500;
+    }
+</style>
+<body>
+<div class="tb-promo">
+    <!--换成伪元素来实现-->
+    <!--    <div class="mask"></div>-->
+    <img src="../img/img.png" alt="">
+    <a href="#" class="prev">&lt;</a>
+    <a href="#" class="next">&gt;</a>
+    <ul class="promo-nav">
+        <li class="selected"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
