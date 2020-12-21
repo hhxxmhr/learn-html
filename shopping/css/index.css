@@ -78,14 +78,27 @@
     height: 71px;
     border-right: 1px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
-    /*可以将里面的行内块元素水平居中显示*/
+    /*父盒子设置text-align: center;后，盒子里面的 文字内容、行内元素、行内块元素、 都可以水平居中对齐*/
     text-align: center;
+    padding-top: 10px;
 }
 
-.life_service ul li i {
-    display: inline-block;
+/*推荐模块*/
+.recommend {
+    height: 163px;
+    background-color: #ff8500;
 }
 
-.news_flash .bargain {
-    margin-top: 5px;
+.recommend_hd {
+    float: left;
+    height: 163px;
+    width: 205px;
+    background-color: #ff8500;
+    /*让图片水平居中*/
+    text-align: center;
+    padding-top: 15px;
+}
+
+.recommend_bd {
+    float: left;
 }
