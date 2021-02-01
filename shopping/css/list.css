@@ -1,0 +1,75 @@
+/*秒杀*/
+.sk {
+    position: absolute;
+    left: 155px;
+    top: 25px;
+    width: 100px;
+    height: 61px;
+    padding-left: 5px;
+    border-left: 1px solid #cccccc;
+}
+
+.sk img {
+    width: 100px;
+    height: 61px;
+}
+
+.sk_list ul li {
+    float: left;
+}
+
+.sk_list ul li a {
+    line-height: 47px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 25px;
+}
+
+.sk_con ul li {
+    float: left;
+}
+
+.sk_con ul li a {
+    /*行高大于高度，就会偏下*/
+    line-height: 49px;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.sk_con ul li:last-child a::after {
+    font-family: 'iconfont';
+    content: '\e610';
+    margin-left: 5px;
+}
+
+/*nav 的高度47，它里面右边的盒子行高是49，这样就撑大了高度；又有【女装】那些li是浮动的，所以有浮动的盒子是不会遮住文字，文字只会围绕着盒子
+解决方法:将多出的2px给隐藏掉*/
+.nav {
+    overflow: hidden;
+}
+
+.sk_hd img {
+    width: 1200px;
+    height: 100px;
+}
+
+.sk_bd ul li {
+    float: left;
+    width: 290px;
+    height: 460px;
+    background-color: #ff8500;
+    margin-right: 13px;
+    /*选中的时候添加边框，很容易将框的大小溢出，所以在一开始的时候就加一个透明的边框，就不会抖动了*/
+    border: 1px solid transparent;
+}
+
+.sk_bd ul li:nth-child(4n) {
+    margin-right: 0;
+}
+
+.sk_bd ul li:hover {
+    border: 1px solid black;
+}
+
+/*sk_bd没有加高度，里面的li又浮动了，所以肯定会有一个浮动引起的问题，底下的元素会升上来；
+解决方法：要么overflow，要么清除浮动*/

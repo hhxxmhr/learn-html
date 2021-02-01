@@ -1,0 +1,22 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+
+}
+
+.logo {
+    height: 84px;
+    border-bottom: 2px solid #c81623;
+    padding-top: 18px;
+}
+
+.logo img {
+    height: 100%;
+}
+
+.registerarea {
+
+}
