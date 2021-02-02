@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转中心点</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #cccccc;
+        margin: 100px auto;
+        /*最后一步，将超出部分的伪元素给隐藏掉*/
+        overflow: hidden;
+    }
+
+    div::before {
+        /*伪元素是行内元素，要转换才能设置宽高*/
+        display: inline-block;
+        content: "wangzi";
+        width: 100%;
+        height: 100%;
+        transform: rotate(180deg);
+        transform-origin: left bottom;
+        background-color: pink;
+        /*动画过渡*/
+        transition: all 0.8s;
+    }
+
+    /*鼠标经过div,里面的before复原*/
+    div:hover::before {
+        transform: rotate(0deg);
+    }
+
+</style>
+<body>
+<div></div>
+</body>
+</html>
