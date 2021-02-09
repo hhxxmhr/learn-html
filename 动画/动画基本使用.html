@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画基本使用</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: #ff8500;
+        /*调用动画*/
+        animation-name: move;
+        /*持续时间*/
+        animation-duration: 5s;
+    }
+
+    /*定义动画*/
+    @keyframes move {
+        /*初始状态*/
+        /*0% {
+            transform: translateX(0px);
+        }
+        !*结束状态*!
+        100% {
+            transform: translateX(1000px);
+        }*/
+        /*from 和 to 等价于 0%和100%*/
+        from {
+            transform: translateX(0px);
+        }
+        /*结束状态*/
+        to {
+            transform: translateX(1000px);
+        }
+    }
+</style>
+<body>
+<div></div>
+</body>
+</html>

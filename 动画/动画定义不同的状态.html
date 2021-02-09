@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画状态</title>
+</head>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: #ff8500;
+        animation-name: move;
+        animation-duration: 10s;
+    }
+
+    /*百分比 划分的总时间*/
+    @keyframes move {
+        0% {
+
+        }
+        25% {
+            transform: translate(1000px, 0);
+        }
+        50% {
+            transform: translate(1000px, 100px);
+        }
+        75% {
+            transform: translate(0, 100px);
+        }
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+</style>
+<body>
+<div></div>
+</body>
+</html>

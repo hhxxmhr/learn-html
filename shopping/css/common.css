@@ -55,7 +55,6 @@
     background-color: skyblue;
 }
 
-/*你不知道的事还有很多比如老板*/
 .logo a {
     display: block;
     /*跟父盒子一样大小*/
@@ -202,7 +201,6 @@
 }
 
 .nav .navItems ul li a {
-    height: 45px;
     line-height: 45px;
     font-size: 16px;
     padding: 0 25px;

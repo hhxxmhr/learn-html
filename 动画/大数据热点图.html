@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大数据热点图</title>
+</head>
+<style>
+    .map {
+        position: relative;
+        width: 1072px;
+        height: 600px;
+        margin: 100px auto;
+        background: url("../img/img.png") no-repeat;
+    }
+
+    .city {
+        position: absolute;
+        top: 212px;
+        left: 683px;
+        color: #ffffff;
+    }
+
+    /*如果发现小圆点跟city直接写数字的位置不一样，那是因为数字字体16px,这个设置的是8px,所以就会偏上些*/
+    .dotted {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ff8500;
+    }
+
+    /*属性选择器 以pulse为开始的类名*/
+    .city div[class^="pulse"] {
+
+    }
+
+</style>
+<body>
+<div class="map">
+    <div class="city">
+        <div class="dotted"></div>
+        <div class="pulse1"></div>
+        <div class="pulse2"></div>
+        <div class="pulse3"></div>
+    </div>
+</div>
+</body>
+</html>
