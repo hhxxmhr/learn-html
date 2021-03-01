@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>北极熊跑步</title>
+</head>
+<style>
+    .image {
+        height: 400px;
+        position: relative;
+        background: url("media/bg1.png") no-repeat;
+        animation: hill 9s linear infinite;
+    }
+
+    .thing {
+        position: absolute;
+        top: 220px;
+        width: 200px;
+        height: 100px;
+        background: url("media/bear.png");
+        /*一个元素可以多个动画 ，用逗号间隔*/
+        animation: bear 1s steps(8) infinite, move 3s forwards;
+    }
+
+    @keyframes hill {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -1600px 0;
+        }
+    }
+
+    @keyframes bear {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -1600px 0;
+        }
+    }
+
+    /*第二个动画  div的移动，到中间,给div加上position*/
+    @keyframes move {
+        0% {
+            left: 0;
+        }
+        100% {
+            left: 50%;
+            /*向左自身的50%宽度*/
+            /*margin-left: -100px;*/
+            transform: translateX(-50%);
+        }
+    }
+</style>
+<body>
+<div class="image">
+    <div class="thing"></div>
+</div>
+
+</body>
+</html>
