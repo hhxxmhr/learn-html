@@ -1,0 +1,85 @@
+body {
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 640px;
+    background-color: #ffffff;
+    font-size: 14px;
+    font-family: -apple-system, sans-serif;
+    line-height: 1.5;
+    color: #666666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*去掉li的小圆点*/
+li {
+    list-style: none
+}
+
+.app {
+    height: 50px;
+}
+
+.app ul li {
+    height: 50px;
+    /*行高，文字垂直居中*/
+    line-height: 50px;
+    background-color: #313330;
+    float: left;
+    /*让文字水平居中*/
+    text-align: center;
+    color: #ffffff;
+}
+
+.app ul li img {
+    /*图片默认和文字的基线对齐，设置垂直居中；当图片和文字大小差不多的时候，没有这一行也可
+    但要是图片大一些了，就会很明显了，需要设置这个属性；基本上看见行内块都要设置vertical*/
+    vertical-align: middle;
+}
+
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+
+.app ul li:nth-child(1) img {
+    width: 16px;
+}
+
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+
+.app ul li:nth-child(2) img {
+    width: 35px;
+}
+
+.app ul li:nth-child(3) {
+    position: relative;
+    width: 57%;
+}
+
+
+.app ul li:nth-child(3) h4 {
+    /*width: 100%;*/
+    margin-left: 20px;
+    position: absolute;
+    top: -9px;
+    font-size: 14px;
+}
+
+.app ul li:nth-child(3) p {
+    /*width: 100%;*/
+    margin-left: 20px;
+    position: absolute;
+    top: 9px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.app ul li:nth-child(4) {
+    width: 25%;
+    background-color: #f53413;
+}
