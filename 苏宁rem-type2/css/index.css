@@ -1,0 +1,72 @@
+body {
+    min-width: 320px;
+    /*屏幕最大750*/
+    max-width: 750px;
+    /*flexible 将当前屏幕划分了十等分 750px/10份=75 750px/75 = 10*/
+    width: 10rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica;
+    background-color: #f2f2f2;
+}
+
+/*如果屏幕超过了 750px 那么按照750设计稿来走 不会让页面超过750px*/
+@media screen and (min-width: 750px) {
+    html {
+        /*提高权重*/
+        font-size: 75px !important;
+    }
+}
+
+a {
+    text-decoration: none;
+    font-size: 0.333rem;
+}
+
+.search-content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10rem;
+    height: 1.173rem;
+    background-color: #34c29a;
+}
+
+.classify {
+    width: 0.587rem;
+    height: 0.933rem;
+    margin: 0.147rem 0.333rem 0.133rem 0.333rem;
+    background: url("../images/classify.png") no-repeat;
+    background-size: 0.587rem 0.933rem;
+}
+
+.search {
+    flex: 1;
+    background-color: purple;
+}
+
+.search input {
+
+    width: 100%;
+    height: 0.88rem;
+    font-size: 0.333rem;
+    border-radius: 0.44rem;
+    border: 0;
+    outline: none;
+    background-color: lightpink;
+    margin-top: 0.133rem;
+    padding-left: 0.733rem;
+    color: #757575;
+}
+
+.login {
+    width: 1rem;
+    height: 0.933rem;
+    background-color: darkred;
+    margin: 0.133rem;
+    color: #ffffff;
+    line-height: 0.933rem;
+    text-align: center;
+}

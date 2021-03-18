@@ -1,12 +1,26 @@
 body {
-    margin: 0 auto;
+    width: 100%;
     min-width: 320px;
     max-width: 640px;
+    margin: 0 auto;
     background-color: #ffffff;
     font-size: 14px;
     font-family: -apple-system, sans-serif;
     line-height: 1.5;
     color: #666666;
+}
+
+/*清除浮动*/
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
 }
 
 * {
@@ -17,6 +31,16 @@ body {
 /*去掉li的小圆点*/
 li {
     list-style: none
+}
+
+/*去除图片下面的空白缝隙*/
+img {
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+    color: #666666;
 }
 
 .app {
@@ -61,7 +85,6 @@ li {
     width: 57%;
 }
 
-
 .app ul li:nth-child(3) h4 {
     /*width: 100%;*/
     margin-left: 20px;
@@ -82,4 +105,156 @@ li {
 .app ul li:nth-child(4) {
     width: 25%;
     background-color: #f53413;
+}
+
+.search_wrap {
+    /*position: relative;*/
+    position: fixed;
+    /*加了固定的盒子要给宽度，这三个不可少*/
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 44px;
+    /*嵌套关系的块级元素外边距塌陷*/
+    /*子元素margin-top 塌陷*/
+    overflow: hidden;
+}
+
+.search_btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+    background-color: pink;
+}
+
+.search_btn:before {
+    /*这是行内元素，没法设置大小*/
+    display: block;
+    content: "";
+    width: 20px;
+    height: 18px;
+    background: url("../images/s-btn.png");
+    background-size: 20px 18px;
+    margin: 14px 0 0 15px;
+}
+
+.search_login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 44px;
+    line-height: 44px;
+    color: #ffffff;
+    background-color: purple;
+}
+
+.search {
+    position: relative;
+    height: 30px;
+    background-color: #009dfd;
+    /*这个盒子就跟父盒子一样的大小，将两边的内容空出来*/
+    margin: 7px 50px 0 50px;
+    border-radius: 15px;
+}
+
+.jd-icon {
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top: 8px;
+    left: 13px;
+    background: url("../images/jd.png");
+    background-size: 20px 15px;
+}
+
+/*加一条分割竖线，除了div以外，也可以像这样使用伪元素*/
+.jd-icon::after {
+    position: absolute;
+    top: 0;
+    left: 28px;
+    content: "";
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #cccccc;
+}
+
+.sou {
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    width: 18px;
+    height: 15px;
+    /*精灵图位置*/
+    background: url("../images/jd-sprites.png") no-repeat -81px 0;
+    /*背景图片缩小两倍*/
+    background-size: 200px auto;
+}
+
+.slider img {
+    width: 100%;
+}
+
+.brand {
+    /*切的圆角是盒子的，但是显示还是有直角的，是因为图片的角*/
+    border-radius: 10px 10px 0 0;
+    /*盒子不想要，图片也就不显示了*/
+    overflow: hidden;
+}
+
+.brand div {
+    float: left;
+    width: 33.33%
+}
+
+.brand div img {
+    width: 100%;
+}
+
+.nav {
+    margin-top: 10px;
+}
+
+.nav a {
+    /*设置浮动了，行内元素成行内块，所以可以设置宽度了*/
+    float: left;
+    width: 20%;
+    /*文字和图片同时水平居中*/
+    text-align: center;
+    margin: 10px 0;
+}
+
+.nav a img {
+    width: 40px;
+}
+
+.nav a span {
+    display: block;
+    margin-top: 5px;
+}
+
+.news {
+    margin-top: 10px;
+}
+
+.news a {
+    float: left;
+    /*c3盒子模型，border就不用计算了，也不会撑开盒子了*/
+    box-sizing: border-box;
+}
+
+.news a:nth-child(1) {
+    width: 50%;
+}
+
+.news a:nth-child(n+2) {
+    width: 25%;
+    border-left: 1px solid #cccccc;
+}
+
+.news a img {
+    width: 100%;
 }

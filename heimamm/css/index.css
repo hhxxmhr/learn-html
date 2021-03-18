@@ -1,0 +1,186 @@
+body {
+  min-width: 320px;
+  max-width: 750px;
+  height: 1200px;
+  margin: 0 auto;
+  background-color: #f2f4f7;
+}
+/*约束： 当屏幕大于750px的时候，html字体大小就不变化了*/
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 37.5px !important;
+  }
+}
+a {
+  text-decoration: none;
+  color: #707070;
+}
+.wrap {
+  background-color: #fff;
+  padding-bottom: 0.48rem;
+}
+.header {
+  height: 2.133rem;
+  border-bottom: 1px solid #eaeaea;
+  line-height: 2.133rem;
+  text-align: center;
+  font-size: 0.933rem;
+  color: #1c1c1c;
+}
+.nav {
+  display: flex;
+  /*显示不开就换行*/
+  flex-wrap: wrap;
+  padding: 1.2rem 0 1.6rem 0;
+}
+.nav .item {
+  flex: 33.33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav .item:nth-child(-n + 3) {
+  margin-bottom: 1.653rem;
+}
+.nav .item img {
+  width: 3.707rem;
+  height: 3.707rem;
+}
+.nav .item span {
+  font-size: 0.667rem;
+}
+.go {
+  margin: 0 0.267rem;
+}
+.go img {
+  width: 19.253rem;
+  height: 4.053rem;
+}
+.content {
+  padding: 1.067rem 0.64rem;
+  background-color: #fff;
+  margin-top: 0.267rem;
+}
+.content-hd {
+  height: 1.013rem;
+  line-height: 1.013rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.907rem;
+}
+.content-hd h4 {
+  margin: 0;
+  font-size: 0.747rem;
+  color: #333333;
+}
+.content-hd h4 img {
+  width: 1.013rem;
+  height: 1.013rem;
+  vertical-align: middle;
+}
+.content-hd .more {
+  font-size: 0.587rem;
+  color: #999999;
+}
+.focus {
+  /*因为需要求把左右小箭头拿到外边去，所以将代码放到container外边去了，然后子绝父相，*/
+  position: relative;
+  /*选择的这个*/
+}
+.focus .swiper-container {
+  /*设置宽度*/
+  width: 14.4rem;
+  height: 100%;
+}
+.focus .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  transition: 300ms;
+  transform: scale(0.8);
+  opacity: 0.4;
+}
+.focus .swiper-slide a {
+  width: 9.013rem;
+  height: 10.027rem;
+}
+.focus .swiper-slide a img {
+  width: 100%;
+  height: 100%;
+}
+.focus .swiper-slide p {
+  width: 9.013rem;
+  font-size: 0.667rem;
+  color: #333333;
+}
+.focus .swiper-slide-active,
+.focus .swiper-slide-duplicate-active {
+  transform: scale(1);
+  /*增加层级*/
+  z-index: 999;
+  /*透明底对比*/
+  opacity: 1;
+}
+.focus .swiper-button-next,
+.focus .swiper-button-prev {
+  outline: none;
+}
+.focus .swiper-button-next:after,
+.focus .swiper-button-prev:after {
+  font-size: 1.0667rem;
+  color: #333333;
+}
+.study .swiper-container {
+  padding: 0.267rem;
+}
+.study .swiper-slide {
+  width: 7.733rem;
+  height: 9.067rem;
+  font-size: 18px;
+  border-radius: 0.267rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.study .swiper-slide img {
+  width: 100%;
+}
+.study .swiper-slide h5 {
+  margin: 0.533rem 0;
+  font-size: 0.747rem;
+  font-weight: 400;
+  padding: 0 0.267rem;
+}
+.study .swiper-slide p {
+  margin: 0;
+  font-size: 0.693rem;
+  color: #fa994d;
+  padding: 0 0.267rem;
+}
+.footer {
+  display: flex;
+  width: 100%;
+  height: 2.933rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: pink;
+  z-index: 9999;
+}
+.footer a {
+  flex: 1;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,321 @@
+body {
+    width: 100%;
+    min-width: 320px;
+    max-width: 540px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    font-size: 14px;
+    font-family: Tahoma, -apple-system, sans-serif;
+    line-height: 1.5;
+    color: #000000;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.div {
+    /*css3计算模型*/
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+.search-index {
+    display: flex; /*step 3*/
+    /*固定定位和父级没有关系，他以屏幕为准*/
+    position: fixed;
+    /*固定的盒子应该有宽度*/
+    width: 100%;
+    min-width: 320px;
+    max-width: 540px;
+    height: 44px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    /*background-color: pink;*/
+    /*下面四行并不影响结果，但是这样可能更为完善一些*/
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.search {
+    position: relative;
+    /*剩余部分都是搜索框；给父元素加上flex属性*/
+    flex: 1; /*step 2*/
+    height: 26px;
+    /*行高=高度-border，不然行高偏大，字就偏下*/
+    line-height: 24px;
+    border: 1px solid #cccccc;
+    margin: 7px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #666666;
+    padding-left: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.search::before {
+    content: "";
+    /*块级元素独占一行，所以里面的文字会被挤到下面一行显示*/
+    /*最简单的方法是把放大镜改成绝对定位，绝对定位不占位置*/
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    /*加了绝对定位的盒子可以直接设置大小*/
+    /*1、display: block;*/
+    width: 15px;
+    height: 15px;
+    background: url("../images/sprite.png") no-repeat -59px -279px;
+    background-size: 104px auto;
+    /*绝对定位Margin就不起作用了*/
+    /*2、margin: 5px;*/
+}
+
+/*虽然a标签是行内元素没法设置宽高；但是flex布局默认每一个子元素都可以设置*/
+.user {
+    /*step 1*/
+    width: 44px;
+    height: 44px;
+    /*background-color: purple;*/
+    color: #009dfd;
+    font-size: 12px;
+    text-align: center;
+}
+
+.user::before {
+    content: "";
+    /*行内元素转块级元素*/
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url("../images/sprite.png") no-repeat -59px -194px;
+    /*背景图缩小一半*/
+    background-size: 104px auto;
+    margin: 3px auto -2px;
+}
+
+/*又因为上面的search-index盒子是固定定位，不占有位置，所以就有一部分图片压在了下面*/
+.focus {
+    padding-top: 44px;
+}
+
+/*让图片和父亲宽度一样*/
+.focus img {
+    width: 100%;
+}
+
+.local-nav {
+    display: flex;
+    height: 64px;
+    background-color: #ffffff;
+    margin: 3px 4px;
+    border-radius: 18px;
+}
+
+.local-nav li {
+    flex: 1;
+}
+
+.local-nav li a {
+    /*将主轴改为纵轴*/
+    display: flex;
+    flex-direction: column;
+    /*将侧轴设置为居中*/
+    align-items: center;
+    font-size: 12px;
+}
+
+/*属性选择器*/
+.local-nav li [class^="local-nav-icon"] {
+    width: 32px;
+    height: 32px;
+    /*在flex里面不会出现外边距合并的问题*/
+    margin-top: 8px;
+    background: url("../images/localnav_bg.png") no-repeat 0 0;
+    background-size: 32px auto;
+}
+
+.local-nav li .local-nav-icon-icon2 {
+    background-position: 0 -32px;
+}
+
+.local-nav li .local-nav-icon-icon3 {
+    background-position: 0 -64px;
+}
+
+.local-nav li .local-nav-icon-icon4 {
+    background-position: 0 -96px;
+}
+
+.local-nav li .local-nav-icon-icon5 {
+    background-position: 0 -128px;
+}
+
+nav {
+    border-radius: 18px;
+    /*多出去的隐藏，显示圆角*/
+    overflow: hidden;
+    margin: 3px 4px;
+}
+
+.nav-common {
+    display: flex;
+    height: 88px;
+    background-color: #009dfd;
+}
+
+.nav-common:nth-child(1) {
+    /*渐变背景：一定要加浏览器私有前缀*/
+    background: -webkit-linear-gradient(left, #fa5a55, #fa994d);
+}
+
+.nav-common:nth-child(2) {
+    margin: 3px 0;
+    background: -webkit-linear-gradient(left, #4b90ed, #53bced);
+}
+
+.nav-common:nth-child(3) {
+    margin: 3px 0;
+    background: -webkit-linear-gradient(left, #34c29a, #6cd559);
+}
+
+.nav-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/*-n+2 就是选择前面两个元素*/
+.nav-items:nth-child(-n+2) {
+    border-right: 1px solid #ffffff;
+}
+
+.nav-items a {
+    flex: 1;
+    text-align: center;
+    line-height: 44px;
+    color: #ffffff;
+    font-size: 14px;
+    /*水平1像素，垂直1像素*/
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.nav-items a:nth-child(1) {
+    border-bottom: 1px solid #ffffff;
+}
+
+/*第一列的a不需要下边框*/
+.nav-items:nth-child(1) a {
+    border: 0;
+    background: url("../images/hotel.png") no-repeat bottom center;
+    /*三倍图*/
+    background-size: 121px auto;
+}
+
+.sub-nav-entry {
+    display: flex;
+    /*可以换行，否则这是个均分一行*/
+    flex-wrap: wrap;
+    border-radius: 8px;
+    margin: 0 4px;
+    padding: 5px 0;
+    background-color: #ffffff;
+}
+
+.sub-nav-entry li {
+    /*子元素可以写 % ；相对于父元素来说*/
+    flex: 20%;
+}
+
+.sub-nav-entry li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-nav-entry-icon {
+    width: 28px;
+    height: 28px;
+    margin-top: 4px;
+    background: url("../images/subnav-bg.png") no-repeat;
+    background-size: 28px auto;
+}
+
+.sales-box {
+    background-color: #fff;
+    margin: 4px;
+    border-top: 1px solid #bbb;
+}
+
+.sales-hd {
+    position: relative;
+    height: 44px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.sales-hd h2 {
+    position: relative;
+    /*不显示文字，但是标签存在*/
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.sales-hd h2::after {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    content: "";
+    width: 79px;
+    height: 15px;
+    background: url("../images/hot.png") no-repeat 0 -20px;
+    background-size: 79px auto;
+}
+
+.more {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    background: -webkit-linear-gradient(left, #ff6f79, #ff89ca);
+    border-radius: 15px;
+    padding: 3px 20px 3px 5px;
+    color: #ffffff;
+}
+
+.more::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    transform: rotate(45deg);
+}
+
+.row {
+    display: flex;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.row a {
+    flex: 1;
+}
+
+.row a:nth-child(1) {
+    border-right: 1px solid #eeeeee;
+}
+
+.row a img {
+    width: 100%;
+}
