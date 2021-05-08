@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送短信</title>
+</head>
+<body>
+手机号码：<input type="number">
+<button>发送</button>
+<script>
+    let button = document.querySelector('button');
+    let seconds = 3;
+    button.addEventListener('click', function () {
+        this.disabled = true;
+        // 定时器控制时间
+        let timer = setInterval(function () {
+            if (seconds === 0) {
+                // 清除定时器
+                clearInterval(timer);
+                // 这里的button不能改为this，定时器里面的调用者是window，里面的this指向window
+                button.disabled = false;
+                button.innerHTML = '发送';
+                seconds = 3;
+            } else {
+                button.innerHTML = '还有' + seconds + '秒';
+                seconds--;
+            }
+        }, 1000);
+    })
+</script>
+</body>
+</html>

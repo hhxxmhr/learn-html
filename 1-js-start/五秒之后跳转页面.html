@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5秒之后跳转页面</title>
+</head>
+<body>
+<span></span>
+<script>
+    let seconds = 5;
+    let span = document.querySelector('span');
+    jump();
+    setInterval(jump, 1000);
+
+    function jump() {
+        if (seconds === 0) {
+            location.href = 'https://www.baidu.com/';
+        } else {
+            span.innerText = '还有' + seconds + '秒到达网页～';
+            seconds--;
+        }
+    }
+</script>
+</body>
+</html>

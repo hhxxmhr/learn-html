@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按键光标聚焦</title>
+</head>
+<style>
+    .san-jiao {
+        margin: 100px auto;
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-top-color: rebeccapurple;
+    }
+</style>
+<body>
+<div class="san-jiao"></div>
+<label>
+    <input type="text">
+</label>
+<script>
+    let input = document.querySelector('input');
+    document.addEventListener('keypress', function (e) {
+        if (e.key === 's') {
+            input.focus();
+        }
+    })
+</script>
+</body>
+</html>

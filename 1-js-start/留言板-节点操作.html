@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点操作</title>
+</head>
+<style>
+    .box {
+        width: 500px;
+        margin: 100px auto;
+    }
+
+    li {
+        background-color: pink;
+        margin-bottom: 10px;
+    }
+
+    li a {
+        text-decoration: none;
+        float: right;
+    }
+</style>
+<body>
+<div class="box">
+    <label>
+        <textarea></textarea>
+    </label>
+    <button>发布</button>
+    <ul>
+    </ul>
+</div>
+<script>
+    let textarea = document.querySelector('textarea');
+    let button = document.querySelector('button');
+    let ul = document.querySelector('ul');
+    button.onclick = function () {
+        let li = document.createElement('li');
+        li.innerHTML = textarea.value + "<a href='javascript:;'>删除</a>";
+        // ul.appendChild(li);
+        ul.insertBefore(li, ul.children[0]);
+
+        // 删除元素
+        let as = document.querySelectorAll('a');
+        for (let i = 0; i < as.length; i++) {
+            as[i].onclick = function () {
+                // 删除这个a所在的li元素
+                ul.removeChild(this.parentNode)
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

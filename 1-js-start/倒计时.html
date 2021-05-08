@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>秒杀倒计时</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .box {
+        width: 600px;
+        margin: 100px auto;
+    }
+
+    span {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: #333333;
+        color: #cccccc;
+        font-size: 20px;
+        text-align: center;
+        line-height: 100px;
+    }
+</style>
+<body>
+<div class="box">
+    <span class="hour">1</span>
+    <span class="minute">2</span>
+    <span class="seconds">3</span>
+</div>
+<script>
+    let finalTime = +new Date('2021-05-08 18:00:00');
+    let hour = document.querySelector('.hour');
+    let minute = document.querySelector('.minute');
+    let seconds = document.querySelector('.seconds');
+    getDown(); // 先调用一遍函数，防止页面刷新的时候显示1 2 3
+    setInterval(getDown, 1000);
+
+    function getDown() {
+        let now = +new Date();
+        let h = parseInt((finalTime - now) / 1000 / 60 / 60 % 24);
+        h = h < 10 ? '0' + h : h;
+        hour.innerHTML = h;
+        let m = parseInt((finalTime - now) / 1000 / 60 % 60);
+        m = m < 10 ? '0' + m : m;
+        minute.innerHTML = m;
+        let s = parseInt((finalTime - now) / 1000 % 60);
+        s = s < 10 ? '0' + s : s;
+        seconds.innerHTML = s;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡的实现</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .box {
+        width: 800px;
+        height: 300px;
+        background-color: pink;
+        margin: 100px auto;
+    }
+
+    .tab_list {
+        height: 50px;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    li {
+        list-style: none;
+        float: left;
+        padding: 0 63px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .current {
+        background-color: rebeccapurple;
+        color: #fff;
+    }
+
+    .item {
+        display: none;
+    }
+
+</style>
+<body>
+<div class="box">
+    <div class="tab_list">
+        <ul>
+            <li class="current">今天</li>
+            <li>你好</li>
+            <li>漂亮</li>
+            <li>啊～</li>
+            <li>哈！</li>
+        </ul>
+    </div>
+    <div class="tab_con">
+        <p class="item" style="display: block">哈哈哈哈</p>
+        <p class="item">xxxx</p>
+        <p class="item">2222</p>
+        <p class="item">333333</p>
+        <p class="item">44444444</p>
+    </div>
+</div>
+<script>
+    // 点击选项卡变色
+    let tabs = document.querySelector('.tab_list').getElementsByTagName('li');
+    let contents = document.querySelector('.tab_con').getElementsByTagName('p');
+    for (let i = 0; i < tabs.length; i++) {
+        // 给tab设置索引号属性
+        tabs[i].setAttribute('index', i);
+
+        tabs[i].onclick = function () {
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].className = '';
+            }
+            tabs[i].className = 'current';
+
+            // 当前点击的tab索引
+            let index = this.getAttribute('index');
+            for (let j = 0; j < contents.length; j++) {
+                contents[j].style.display = 'none';
+            }
+            contents[index].style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>

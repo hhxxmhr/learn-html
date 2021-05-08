@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取鼠标在盒子内的坐标</title>
+</head>
+<style>
+    .box {
+        background-color: pink;
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+    }
+</style>
+<body>
+<div class="box"></div>
+<script>
+    let box = document.querySelector('.box');
+    box.addEventListener('mousemove', function (e) {
+        // 鼠标距离页面的坐标 减去 盒子在页面中的距离 = 鼠标在盒子里的坐标
+        let x = e.pageX - this.offsetLeft;
+        let y = e.pageY - this.offsetTop;
+        this.innerHTML = 'x:' + x + ' y:' + y
+    })
+</script>
+</body>
+</html>

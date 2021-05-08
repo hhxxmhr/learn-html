@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>五秒之后自动关闭</title>
+</head>
+<body>
+<img src="images/s.gif" alt="">
+<script>
+    let img = document.querySelector('img');
+    let timeout = setTimeout(function () {
+        img.style.display = 'none';
+    }, 5000);
+    // 清楚定时器（暂停执行）
+    clearTimeout(timeout);
+</script>
+</body>
+</html>

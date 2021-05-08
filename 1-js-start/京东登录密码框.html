@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东登录密码框</title>
+</head>
+<style>
+    .box {
+        position: relative;
+        width: 400px;
+        margin: 100px auto;
+        border-bottom: 1px solid #cccccc;
+    }
+
+    img {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 24px;
+    }
+
+    input {
+        width: 370px;
+        height: 30px;
+        border: 0;
+        outline: none;
+    }
+</style>
+<body>
+<div class="box">
+    <label for="">
+        <img src="images/close.png" alt="">
+        <input type="password" id="pwd">
+    </label>
+</div>
+<script>
+    let img = document.querySelector('img');
+    let pwd = document.getElementById('pwd');
+    let flag = false;
+    img.onclick = function () {
+        flag = !flag;
+        if (flag) {
+            pwd.type = 'text';
+            this.src = 'images/open.png';
+        } else {
+            pwd.type = 'password';
+            this.src = 'images/close.png';
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scrollTop</title>
+</head>
+<style>
+    .scroll {
+        width: 500px;
+        height: 300px;
+        background-color: pink;
+        overflow: auto;
+    }
+</style>
+<body>
+<div class="scroll">
+    <h1>123</h1>
+    <h1>123</h1>
+    <h1>123</h1>
+    <h1>123</h1>
+    <h3>123</h3>
+    <h3>123</h3>
+    <h3>123</h3>
+    <h3>123</h3>
+    <h3>123</h3>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        document.getElementsByClassName("scroll")[0].scrollTop = document.getElementsByClassName("scroll")[0].scrollHeight;
+        let scrollHeight = document.getElementsByClassName("scroll")[0].scrollHeight;
+        // console.log('scrollTop:' + scrollTop)
+        console.log('scrollHeight:' + scrollHeight)
+    }
+
+</script>
+</html>
