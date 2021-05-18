@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿淘宝返回顶部</title>
+</head>
+<style>
+    .w {
+        width: 1200px;
+        margin: 10px auto;
+    }
+
+    .header {
+        height: 150px;
+        background-color: pink;
+    }
+
+    .banner {
+        height: 250px;
+        background-color: skyblue;
+    }
+
+    .main {
+        height: 1000px;
+        background-color: yellowgreen;
+    }
+
+    span {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        background-color: yellow;
+    }
+
+    .slider-bar {
+        position: absolute;
+        left: 50%;
+        top: 300px;
+        margin-left: 600px;
+        width: 45px;
+        height: 130px;
+        background-color: mediumpurple;
+    }
+</style>
+<body>
+<div class="slider-bar">
+    <span class="goBack">返回顶部</span>
+</div>
+<div class="header w">头部区域</div>
+<div class="banner w">banner区域</div>
+<div class="main w">主题区域</div>
+<script>
+    let bar = document.querySelector('.slider-bar');
+    let banner = document.querySelector('.banner');
+    // 就是被卷曲头部的大小
+    let bannerTop = banner.offsetTop;
+
+    // 侧边栏的大小
+    let barTop = bar.offsetTop;
+    let laterTop = barTop - bannerTop;
+
+    // 划到main部分，显示goBack
+    let main = document.querySelector('.main');
+    let mainTop = main.offsetTop;
+    let goBack = document.querySelector('.goBack');
+
+    document.addEventListener('scroll', function () {
+        // window.pageYOffset 页面被卷去的头部
+        if (window.pageYOffset > bannerTop) {
+            bar.style.position = 'fixed';
+            bar.style.top = laterTop + 'px';
+        } else {
+            bar.style.position = 'absolute'
+            bar.style.top = '300px';
+        }
+        // 划到main部分的时候，显示'返回顶部'
+        if (window.pageYOffset > mainTop) {
+            goBack.style.display = 'block';
+        } else {
+            goBack.style.display = 'none';
+        }
+    });
+    // 点击返回顶部按钮，就让窗口滚动到页面的最上方
+    goBack.addEventListener('click', function () {
+        // 不跟单位px
+        // window.scroll(0, 0)
+        // 因为是窗口滚动，所以对象是window
+        animate(window, 0)
+    });
+
+    // 动画函数：将和左右相关的改为上下
+    function animate(obj, target, callback) {
+        // 当我们不断的点击按钮 这个元素的速度会越来越快，因为开启了太多的定时器
+        // 解决方案就是：让我们元素只有一个定时器执行
+        // 即：先清除之前的定时器，只保留当前的一个定时器执行
+        clearInterval(obj.interval);
+        obj.interval = setInterval(function () {
+            // 缓慢动画：步长值写在定时器里面
+            // 需要将步长值取整，否则到达不了终点
+            // 步长的值可能正值（往右走），可能负值（往左走）。
+            // 正值：向上取整；负值：向下取整
+            let step = (target - window.pageYOffset) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            if (window.pageYOffset === target) {
+                // 停止动画 = 清除定时器
+                clearInterval(obj.interval);
+
+                callback && callback();
+            }
+            // 匀速动画：当前位置每次加1
+            // obj.style.left = window.pageYOffset + 1 + 'px';
+            // 缓慢动画：把每次加1 这个步长值改为一个慢慢变小的值  步长：（目标值-现在的位置）/10  这也是步长公式
+            // obj.style.left = window.pageYOffset + step + 'px';
+            window.scroll(0, window.pageYOffset + step)
+        }, 15)
+    }
+</script>
+</body>
+</html>

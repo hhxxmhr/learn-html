@@ -18,14 +18,34 @@
 }
 
 .main .focus ul li .mask {
+    /*一开始不显示，鼠标经过才显示*/
+    display: none;
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 1px solid #cccccc;
+    opacity: .5;
+}
+
+.main .focus ul li .bigger {
+    display: none;
+    position: absolute;
+    top: 120px;
+    left: 180px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #cccccc;
+    overflow: hidden;
+}
+
+.bigger img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 300px;
-    height: 300px;
-    /*background-color: #fede4f;*/
-    background-color: red;
-    opacity: .5;
+    width: 190%;
 }
 
 .main .news_flash {

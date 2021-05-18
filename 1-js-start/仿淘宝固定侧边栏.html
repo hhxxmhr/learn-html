@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿淘宝固定侧边栏</title>
+</head>
+<style>
+    .w {
+        width: 1200px;
+        margin: 10px auto;
+    }
+
+    .header {
+        height: 150px;
+        background-color: pink;
+    }
+
+    .banner {
+        height: 250px;
+        background-color: skyblue;
+    }
+
+    .main {
+        height: 1000px;
+        background-color: yellowgreen;
+    }
+
+    span {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        background-color: yellow;
+    }
+
+    .slider-bar {
+        position: absolute;
+        left: 50%;
+        top: 300px;
+        margin-left: 600px;
+        width: 45px;
+        height: 130px;
+        background-color: mediumpurple;
+    }
+</style>
+<body>
+<div class="slider-bar">
+    <span class="goBack">返回顶部</span>
+</div>
+<div class="header w">头部区域</div>
+<div class="banner w">banner区域</div>
+<div class="main w">主题区域</div>
+<script>
+    let bar = document.querySelector('.slider-bar');
+    let banner = document.querySelector('.banner');
+    // 就是被卷曲头部的大小
+    let bannerTop = banner.offsetTop;
+
+    // 侧边栏的大小
+    let barTop = bar.offsetTop;
+    let laterTop = barTop - bannerTop;
+
+    // 划到main部分，显示goBack
+    let main = document.querySelector('.main');
+    let mainTop = main.offsetTop;
+    let goBack = document.querySelector('.goBack');
+
+    document.addEventListener('scroll', function () {
+        // window.pageYOffset 页面被卷去的头部
+        if (window.pageYOffset > bannerTop) {
+            bar.style.position = 'fixed';
+            bar.style.top = laterTop + 'px';
+        } else {
+            bar.style.position = 'absolute'
+            bar.style.top = '300px';
+        }
+        // 划到main部分的时候，显示'返回顶部'
+        if (window.pageYOffset > mainTop) {
+            goBack.style.display = 'block';
+        } else {
+            goBack.style.display = 'none';
+        }
+    })
+</script>
+</body>
+</html>

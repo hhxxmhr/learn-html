@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端拖动元素</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    div {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+</style>
+<body>
+<div></div>
+<script>
+    let div = document.querySelector('div');
+    let touchX = 0;
+    let touchY = 0;
+    let divX = 0;
+    let divY = 0;
+    // 1、触摸元素：获取手指的初始位置，获取盒子的原来的位置
+    div.addEventListener('touchstart', function (e) {
+        touchX = e.targetTouches[0].pageX;
+        touchY = e.targetTouches[0].pageY;
+        divX = this.offsetLeft;
+        divY = this.offsetTop;
+    });
+
+    // 2、移动元素：获取手指的移动位置，设置盒子的位置
+    div.addEventListener('touchmove', function (e) {
+        let moveX = e.targetTouches[0].pageX - touchX;
+        let moveY = e.targetTouches[0].pageY - touchY;
+        // 盒子原始位置+手指移动的位置
+        this.style.left = divX + moveX + 'px';
+        this.style.top = divY + moveY + 'px';
+        // 阻止屏幕的默认滚动行为
+        e.preventDefault();
+    });
+</script>
+</body>
+</html>

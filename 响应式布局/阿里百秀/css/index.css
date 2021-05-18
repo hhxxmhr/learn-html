@@ -1,0 +1,52 @@
+/*根据设计稿修改container的最大宽度为 1280*/
+@media screen and (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #666666;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.logo {
+    background-color: #429ad9;
+}
+
+.logo img {
+    width: 100%;
+}
+
+header {
+    padding-left: 0 !important;
+}
+
+.nav-list {
+    background-color: #eeeeee;
+    border-bottom: 1px solid #cccccc;
+}
+
+.nav-list li a {
+    /*将a标签设置为块级元素，设置高度*/
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+.nav-list li a:hover {
+    color: #333333;
+    background-color: #fff;
+}
+
+.nav-list i::before {
+    padding-right: 5px;
+}

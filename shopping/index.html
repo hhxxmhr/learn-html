@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="iconfont/iconfont.css">
     <!--引入index.css样式文件-->
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/动画函数.js"></script>
+    <!--引入index.js文件-->
+    <script src="js/index.js"></script>
 </head>
 <body>
 <!--快速导航栏-->
@@ -99,6 +102,7 @@
             </div>
         </div>
         <div class="navItems fl">
+            <span class="cloud"></span>
             <ul>
                 <li><a href="#">服装城</a></li>
                 <li><a href="#">购物城</a></li>
@@ -117,9 +121,13 @@
     <div class="main">
         <div class="focus">
             <ul>
-                <li>
+                <li class="preview_image">
                     <img src="images/focus.png" alt="轮播图">
+                    <!--                    放大镜---两个遮罩层都放在同一个（preview_image）类名里面-->
                     <div class="mask">123</div>
+                    <div class="bigger">
+                        <img src="images/bigger.jpeg" alt="放大后" class="big_img">
+                    </div>
                 </li>
             </ul>
         </div>

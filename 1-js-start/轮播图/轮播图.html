@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <!--    index.js里面需要用到动画函数.js，所以动画函数.js需要先引入-->
+    <script src="js/动画函数.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #333333;
+    }
+
+    li {
+        list-style: none;
+        float: left;
+    }
+
+    li img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .focus {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        margin: 100px auto;
+        overflow: hidden;
+    }
+
+    .focus ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /*ul默认和父盒子一样大*/
+        /*得让几个图片一行显示*/
+        width: 600%;
+    }
+
+    .arrow-l,
+    .arrow-r {
+        display: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 40px;
+        background: rgba(0, 0, 0, .3);
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        font-size: 18px;
+        /*因为ul也是绝对定位，这个小按钮会显示不出来，需要加上z-index;*/
+        z-index: 2;
+    }
+
+    .arrow-r {
+        right: 0;
+    }
+
+    .circle {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .circle li {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        margin: 0 4px;
+        /*鼠标经过显示小手*/
+        cursor: pointer;
+    }
+
+    .current {
+        background-color: #fff;
+    }
+</style>
+<body>
+<div class="focus">
+    <!--    左侧按钮-->
+    <a href="javascript:;" class="arrow-l">&lt;</a>
+    <!--    右侧按钮-->
+    <a href="#" class="arrow-r">&gt;</a>
+    <!--核心的滚动区域-->
+    <ul>
+        <li>
+            <a href="#"><img src="../images/z.gif" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="../images/x.gif" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="../images/w.gif" alt=""></a>
+        </li>
+    </ul>
+    <!--    小圆点-->
+    <ol class="circle">
+
+    </ol>
+</div>
+
+</body>
+</html>

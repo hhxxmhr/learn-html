@@ -28,6 +28,17 @@ a {
     color: #222;
 }
 
+.back {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    background: url("../images/back.png") no-repeat;
+    background-size: 38px 38px;
+}
+
 .search-index {
     display: flex; /*step 3*/
     /*固定定位和父级没有关系，他以屏幕为准*/
@@ -46,6 +57,8 @@ a {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+    /*添加最高层级*/
+    z-index: 999;
 }
 
 .search {
@@ -106,7 +119,46 @@ a {
 
 /*又因为上面的search-index盒子是固定定位，不占有位置，所以就有一部分图片压在了下面*/
 .focus {
+    position: relative;
     padding-top: 44px;
+    /*只显示一张图片*/
+    overflow: hidden;
+}
+
+.focus ul {
+    /*让小li都在一行显示*/
+    width: 500%;
+    /*ul没有高度，又有浮动，所以需要清除浮动*/
+    overflow: hidden;
+    /*默认让高铁的那张图片显示，但是第一张是返校的图片*/
+    /*所以往右走一个focus的宽度*/
+    margin-left: -100%;
+}
+
+.focus ul li {
+    width: 20%;
+    float: left;
+}
+
+.focus ol {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.focus ol li {
+    /*在一行上显示*/
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    list-style: none;
+    transition: all .2s;
+}
+
+.focus ol li.current {
+    width: 15px;
 }
 
 /*让图片和父亲宽度一样*/
