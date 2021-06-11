@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型的constructor</title>
+</head>
+<body>
+<script>
+    function Star(uname, age) {
+        this.uname = uname;
+        this.age = age;
+    }
+
+    Star.prototype = {
+        // constructor: Star,
+        sing: function () {
+            console.log('sing')
+        },
+        dance: function () {
+            console.log('dance')
+        }
+    }
+    let h = new Star('哈哈哈', 20);
+    let x = new Star('嘻嘻嘻', 22);
+    // console.log(h.__proto__.constructor)
+    // console.log(Star.prototype.constructor)
+    console.log(h.__proto__)
+    console.log(Star.prototype)
+</script>
+</body>
+</html>

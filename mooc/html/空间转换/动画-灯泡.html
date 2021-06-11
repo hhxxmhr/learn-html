@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画-灯泡</title>
+</head>
+<style>
+    .dengpao {
+        position: absolute;
+        top: 100px;
+        left: 600px;
+    }
+
+    .guang {
+        position: absolute;
+        top: 45px;
+        left: 530px;
+        animation: ss .5s ease 0s infinite alternate;
+    }
+
+    @keyframes ss {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+
+    .huojian {
+        position: absolute;
+        top: 500px;
+        left: 500px;
+        animation: zd .5s linear 0s infinite alternate;
+    }
+
+    @keyframes zd {
+        from {
+            transform: translateX(20px) translateY(20px);
+        }
+        to {
+            transform: translateX(-20px) translateY(-20px);
+        }
+    }
+
+    .line {
+        position: absolute;
+        top: 500px;
+        left: 500px;
+        width: 2px;
+        height: 200px;
+        background-color: pink;
+        transform: rotate(45deg);
+        opacity: 0;
+        animation: yd .5s linear 0s infinite;
+    }
+
+    .line2 {
+        position: absolute;
+        top: 600px;
+        left: 700px;
+        width: 2px;
+        height: 100px;
+        background-color: plum;
+        transform: rotate(45deg);
+        opacity: 0;
+        animation: yd .5s linear 0.3s infinite;
+    }
+
+    .line3 {
+        position: absolute;
+        top: 400px;
+        left: 800px;
+        width: 2px;
+        height: 100px;
+        background-color: plum;
+        transform: rotate(45deg);
+        opacity: 0;
+        animation: yd .5s linear 0.6s infinite;
+    }
+
+    @keyframes yd {
+        0% {
+            transform: rotate(45deg) translateY(-300px);
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            transform: rotate(45deg) translateY(300px);
+            opacity: 0;
+        }
+    }
+</style>
+<body>
+<img src="images/dengpao.png" alt="" class="dengpao">
+<img src="images/guang.png" alt="" class="guang">
+
+<img src="images/huojian.png" alt="" class="huojian">
+<div class="line"></div>
+<div class="line2"></div>
+<div class="line3"></div>
+</body>
+</html>

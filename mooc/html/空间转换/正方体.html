@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正方体</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            perspective: 10000px;
+            position: relative;
+            /*既是舞台又是要动的对象*/
+            transform-style: preserve-3d;
+            animation: rotate 10s linear infinite;
+        }
+
+        .box:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateY(0);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        p {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            margin: 0;
+            padding: 0;
+        }
+
+        p:nth-child(1) {
+            background-color: yellow;
+            transform: translateZ(100px);
+        }
+
+        p:nth-child(2) {
+            background-color: yellowgreen;
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        p:nth-child(3) {
+            background-color: peru;
+            transform: translateX(-100px) rotateY(-90deg);
+        }
+
+        p:nth-child(4) {
+            background-color: powderblue;
+            transform: translateX(100px) rotateY(90deg);
+        }
+
+        p:nth-child(5) {
+            background-color: cornflowerblue;
+            transform: translateY(100px) rotateX(-90deg);
+        }
+
+        p:nth-child(6) {
+            background-color: blueviolet;
+            transform: translateY(-100px) rotateX(90deg);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡综合</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+        margin: 100px auto;
+        width: 508px;
+        height: 107px;
+    }
+
+    li {
+        float: left;
+        width: 107px;
+        height: 107px;
+        margin-right: 20px;
+        position: relative;
+    }
+
+    li::before {
+        content: '';
+        display: block;
+        width: 107px;
+        height: 107px;
+        /*过渡效果*/
+        transition: transform .5s ease 0s;
+    }
+
+    li:nth-child(1)::before {
+        background: url("images/a_1.png") no-repeat;
+    }
+
+    li:nth-child(2)::before {
+        background: url("images/a_2.png") no-repeat;
+    }
+
+    li:nth-child(3)::before {
+        background: url("images/a_3.png") no-repeat;
+    }
+
+    li:nth-child(4)::before {
+        background: url("images/a_4.png") no-repeat;
+    }
+
+    li img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 60px;
+        height: 60px;
+        transform: translate(-50%, -50%);
+        /*margin-top: -30px;
+        margin-left: -30px;*/
+        transition: transform .5s ease 0s;
+    }
+
+    li:hover::before {
+        transform: rotate(360deg);
+    }
+
+    li:hover img {
+        /*位置50% 不要呢覆盖哦，这里要是只写旋转的话*/
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+</style>
+<body>
+<ul>
+    <li>
+        <img src="images/icon1.svg" alt="">
+    </li>
+    <li>
+        <img src="images/icon2.svg" alt="">
+    </li>
+    <li>
+        <img src="images/icon3.svg" alt="">
+    </li>
+    <li>
+        <img src="images/icon4.svg" alt="">
+    </li>
+</ul>
+</body>
+</html>

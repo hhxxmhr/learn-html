@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d翻盖</title>
+</head>
+<style>
+    .box {
+        position: relative;
+        margin: 20px auto;
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        perspective: 600px;
+    }
+
+    .box img {
+        width: 100%;
+    }
+
+    .dog {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /*中心轴*/
+        transform-origin: 0 0;
+        transition: transform 2s linear 0s;
+    }
+
+    .box:hover .dog {
+        transform: rotateY(-180deg);
+    }
+
+    .no2 .dog {
+        transform-origin: 100% 100%;
+    }
+
+    .no2:hover .dog {
+        transform: rotateY(180deg);
+    }
+
+    .no3 .dog {
+        transform-origin: 0 0;
+    }
+
+    .no3:hover .dog {
+        transform: rotateX(180deg);
+    }
+</style>
+<body>
+<div class="box">
+    <img src="images/cat.jpg" alt="" class="cat">
+    <img src="images/dog.jpg" alt="" class="dog">
+</div>
+
+<div class="box no2">
+    <img src="images/cat.jpg" alt="" class="cat">
+    <img src="images/dog.jpg" alt="" class="dog">
+</div>
+<div class="box no3">
+    <img src="images/cat.jpg" alt="" class="cat">
+    <img src="images/dog.jpg" alt="" class="dog">
+</div>
+</body>
+</html>

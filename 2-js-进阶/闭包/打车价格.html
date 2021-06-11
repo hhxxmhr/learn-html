@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打车价格</title>
+</head>
+<body>
+<script>
+    // function f() {};
+    // f();
+    // 立即执行函数的写法-----所以此时立即执行函数也是个闭包
+    let car = (function () {
+        let start = 13; // 起步价 局部变量
+        let total = 0; // 总价 局部变量
+        return {
+            // 正常总价
+            price: function (km) {
+                if (km <= 3) {
+                    total = start; // 引用局部变量
+                } else {
+                    total = start + (km - 3) * 5;
+                }
+                return total;
+            },
+            // 堵车之后费用
+            dc: function (flag) {
+                return flag ? total + 10 : total; // 引用局部变量
+            }
+        }
+    })();
+    console.log(car.price(10));
+    console.log(car.dc(true));
+
+</script>
+</body>
+</html>

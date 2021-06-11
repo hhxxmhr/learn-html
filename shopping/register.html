@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/base.css">
     <!--注册样式-->
     <link rel="stylesheet" href="css/register.css">
+    <script src="js/reg.js"></script>
 </head>
 <body>
 <div class="w">
@@ -26,18 +27,23 @@
                 <ul>
                     <li>
                         <label for="">手机号：</label>
-                        <input type="text">
-                        <span class="color_red"><i class="error_icon"></i>手机号码格式不正确，请重新输入</span>
+                        <input type="text" id="tel">
+                        <span class="color_red"><!--<i class="error_icon"></i>手机号码格式不正确，请重新输入--></span>
+                    </li>
+                    <li>
+                        <label for="">QQ：</label>
+                        <input type="text" id="qq">
+                        <span class="color_green"></span>
                     </li>
                     <li>
                         <label for="">短信验证码：</label>
-                        <input type="text">
+                        <input type="text" id="code">
                         <span class="color_green"><i class="success_icon"></i>短信验证码输入正确</span>
                     </li>
                     <li>
                         <label for="">登录密码：</label>
                         <input type="text">
-                        <span class="color_red"><i class="icon"></i>手机号码格式不正确，请重新输入</span>
+                        <span class="color_red"><i class="icon"></i>密码不正确，请重新输入</span>
                     </li>
                     <li class="save">
                         安全程度
@@ -46,7 +52,7 @@
                     <li>
                         <label for="">确认密码：</label>
                         <input type="text">
-                        <span class="color_red"><i class="icon"></i>手机号码格式不正确，请重新输入</span>
+                        <span class="color_red"><i class="icon"></i>密码不正确，请重新输入</span>
                     </li>
                     <li class="agree">
                         <input type="checkbox"> 同意协议并注册

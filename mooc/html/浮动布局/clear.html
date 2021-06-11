@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+        /*height: 100px;*/
+        /*overflow: hidden;*/
+        margin-bottom: 10px;
+    }
+
+    p {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+        background-color: pink;
+    }
+
+    /*方法*/
+    /*.clearfix::after {
+        content: '';
+        clear: both;
+        display: block;
+    }*/
+
+    .ge-qiang {
+        height: 100px;
+    }
+</style>
+<body>
+<div class="clearfix">
+    <p></p>
+    <p></p>
+</div>
+<div class="ge-qiang"></div>
+<div class="clearfix">
+    <p></p>
+    <p></p>
+</div>
+</body>
+</html>

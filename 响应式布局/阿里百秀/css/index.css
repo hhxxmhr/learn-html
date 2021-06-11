@@ -5,6 +5,14 @@
     }
 }
 
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: #fff;
+}
+
 a {
     text-decoration: none;
     color: #666666;
@@ -20,13 +28,28 @@ ul {
     background-color: #429ad9;
 }
 
+.logo span {
+    display: none;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+}
+
 .logo img {
-    width: 100%;
+    display: block;
+    /*width: 100%;*/
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 header {
     padding-left: 0 !important;
 }
+
+/*1、如果进入了超小屏幕下，logo里面的图片就隐藏起来*/
+/*2、事先准备好一个盒子，在logo里面，他平时是隐藏起来的，只有在超小屏幕下显示*/
 
 .nav-list {
     background-color: #eeeeee;
@@ -49,4 +72,118 @@ header {
 
 .nav-list i::before {
     padding-right: 5px;
+}
+
+/*当进入小屏幕和超小屏幕的时候，nav-list里面的li浮动起来，并且宽度为20%*/
+@media screen and (max-width: 991px) {
+    .nav-list li {
+        float: left;
+        width: 20%;
+    }
+
+    article {
+        margin-top: 10px;
+    }
+}
+
+/*当进入超小屏幕的时候，文字变小*/
+@media screen and (max-width: 767px) {
+    .logo span {
+        display: block;
+    }
+    .logo img {
+        display: none;
+    }
+    .nav-list li a {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    /*当处于超小屏幕，第一个li的宽度100%，剩下的小li各50%*/
+    .news li:nth-child(1) {
+        width: 100% !important;
+    }
+
+    .news li {
+        width: 50% !important;
+    }
+
+    .publish h3 {
+        font-size: 14px;
+    }
+}
+
+.news li {
+    float: left;
+    width: 25%;
+    height: 128px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.news li:nth-child(1) {
+    width: 50%;
+    height: 266px;
+}
+
+.news li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.news li a img {
+    width: 100%;
+    height: 100%;
+}
+
+.news li a p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    height: 41px;
+    line-height: 41px;
+    padding: 0 10px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.news li:nth-child(1) a p {
+    font-size: 20px;
+}
+
+.publish .row {
+    border-top: 1px solid #cccccc;
+}
+
+.publish .row .pic {
+    margin-top: 10px;
+}
+
+.publish .row img {
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.hot {
+    display: block;
+    margin-top: 20px;
+    padding: 0 20px 20px;
+    border: 1px solid #cccccc;
+}
+
+.hot span {
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.hot p {
+    font-size: 12px;
 }
