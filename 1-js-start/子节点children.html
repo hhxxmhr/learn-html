@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子节点children</title>
+</head>
+<style>
+
+</style>
+<body>
+<ol>
+    <li>hhhh</li>
+    <li>hhhh</li>
+    <li>hhhh</li>
+    <li>hhhh</li>
+    <li>hhhh</li>
+    <li>hhhh</li>
+</ol>
+<script>
+    let ol = document.querySelector('ol');
+    let lis = ol.children;
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].onmouseover = function () {
+            console.log(this.children);
+        }
+        lis[i].onmouseout = function () {
+            console.log(this.children);
+        }
+    }
+</script>
+</body>
+</html>

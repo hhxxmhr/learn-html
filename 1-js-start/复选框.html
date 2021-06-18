@@ -13,7 +13,7 @@
 <body>
 <div class="box">
     <label>
-        <input type="checkbox" name="vehicle" value="Bike" id="all">
+        <input type="checkbox" name="vehicle" value="all" id="all">
     </label>I have all<br>
     <div id="choose">
         <label>
@@ -40,7 +40,7 @@
             let flag = true;
             // 检查所有的选项框是否勾选
             for (let i = 0; i < chooses.length; i++) {
-                if (!chooses[i].checked) {// 你今天就是最棒的 张宗真的不是什么很棒的人 谁知道会怎么样的呢 熟悉js的使用
+                if (!chooses[i].checked) {
                     flag = false;
                     break; // 退出循环，反正有一个没选上，全选框就不能选上
                 }

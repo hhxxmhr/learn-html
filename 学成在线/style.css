@@ -41,6 +41,7 @@ a {
     height: 42px;
     /*注意此处会层叠w里面的margin，所以只有上下距离，左右还是居中的*/
     margin: 30px auto;
+    background-color: pink;
 }
 
 .logo {

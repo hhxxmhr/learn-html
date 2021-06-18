@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+</head>
+<body>
+<ul>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+</ul>
+<script>
+    let ul = document.querySelector('ul');
+    ul.addEventListener('click', function () {
+        alert(123)
+    })
+    // let li = ul.querySelectorAll('li')[0];
+    ul.children[0].addEventListener('click', function () {
+        alert(456)
+        // 弹出 456   123  向上冒泡
+    })
+</script>
+</body>
+</html>

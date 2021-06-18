@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标事件对象</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    header {
+        width: 2000px;
+        height: 2000px;
+        background-color: pink;
+    }
+</style>
+<body>
+<header>123</header>
+<script>
+    document.querySelector('header')
+        .addEventListener('click', function (e) {
+            // 鼠标在可视区的坐标（可视区就是当前能按到的范围）
+            console.log('x：' + e.clientX + 'y：' + e.clientY);
+            console.log('------------------------------------');
+
+            // 鼠标在页面文档的坐标（页面文档是包含滚动轴的区域，总共的）
+            console.log('x：' + e.pageX + 'y：' + e.pageY);
+            console.log('------------------------------------');
+
+            // 鼠标在电脑屏幕的坐标
+            console.log('x：' + e.screenX + 'y：' + e.screenY);
+            console.log('------------------------------------');
+        })
+</script>
+</body>
+</html>
