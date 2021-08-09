@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝连续滚动特效</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 400px;
+            height: 50px;
+            margin: 50px auto;
+            border: 1px solid #eeeeee;
+            overflow: hidden;
+        }
+
+        .box ul {
+            list-style: none;
+            /*如果最大的box长度不够，小li被挤下来了，设置ul长度也是可以的*/
+            width: 1000px;
+            /*设置相对定位即可，有left属性*/
+            position: relative;
+        }
+
+        .box ul li {
+            float: left;
+            width: 60px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: pink;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+<script>
+    // 克隆一份
+    let oBox = document.getElementById('box');
+    let oUl = document.getElementById('list');
+    oUl.innerHTML += oUl.innerHTML;
+
+    // 定时器
+    // 设置全局变量，表示当前list的left值
+    let left = 0;
+    let timer;
+    move();
+
+    function move() {
+        // 设表先关，防止动画累积
+        clearInterval(timer);
+        timer = setInterval(function () {
+            left -= 4;
+            // 校验
+            if (left <= -420) {
+                left = 0;
+            }
+            oUl.style.left = left + 'px';
+        }, 10);
+    }
+
+    // 鼠标进入停止定时器
+    oBox.onmouseenter = function () {
+        clearInterval(timer);
+    }
+    // 鼠标离开 继续定时器
+    oBox.onmouseleave = function () {
+        move();
+    }
+</script>
+</body>
+</html>

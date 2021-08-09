@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            width: 600px;
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            float: left;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            line-height: 40px;
+            padding: 0 20px;
+            text-decoration: none;
+            color: #333333;
+        }
+
+        section {
+            position: absolute;
+            display: none;
+            width: 400px;
+            height: 300px;
+            background-color: pink;
+        }
+
+        nav ul li:hover section {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>
+            <a href="#">主站</a>
+            <section>
+                你最好看
+            </section>
+        </li>
+        <li><a href="#">动画</a></li>
+    </ul>
+</nav>
+</body>
+</html>

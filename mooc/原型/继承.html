@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>继承</title>
+</head>
+<body>
+<script>
+    // 父类
+    function People(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    People.prototype.say = function () {
+        console.log(this.name + '开始发言...')
+    }
+
+    // 子类
+    function Student(name, age, school, classNo) {
+        this.name = name;
+        this.age = age;
+        this.school = school;
+        this.classNo = classNo;
+    }
+
+    // 关键语句，实现继承
+    Student.prototype = new People()
+
+    Student.prototype.sing = function () {
+        console.log(this.name + '开始唱歌...')
+    }
+
+    // 重写/覆写（override）父类的say()
+    Student.prototype.say = function () {
+        console.log('学生我' + this.name + '准备讲话了...')
+    }
+
+    let student = new Student('aaa', 11, '000', 9);
+    student.sing()
+    student.say()
+</script>
+</body>
+</html>

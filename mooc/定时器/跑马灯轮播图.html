@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跑马灯轮播图</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #eeeeee;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        .box ul {
+            list-style: none;
+            width: 2000px;
+            /*对ul进行位置的移动，所以需要设置为相对定位，主要设置left值*/
+            position: relative;
+            left: 0;
+            /*加上过度属性*/
+            transition: left .5s ease 0s;
+        }
+
+        .box ul li {
+            float: left;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .box a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: pink;
+        }
+
+        .box a.left-btn {
+            left: 20px;
+        }
+
+        .box a.right-btn {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <a href="#" class="left-btn"></a>
+    <a href="#" class="right-btn"></a>
+</div>
+<script>
+    // 函数节流的锁
+    let lock = true;
+    // 获取按钮和ul
+    let list = document.getElementById('list');
+    let leftBtn = document.getElementsByClassName('left-btn')[0];
+    let rightBtn = document.getElementsByClassName('right-btn')[0];
+    // 克隆第一张图片用来：六张图划到最后一张时，克隆的第一张跳到实际第一张
+    let cloneNode = list.firstElementChild.cloneNode(true);
+    // 追加到list里面
+    list.appendChild(cloneNode);
+
+    // 当前ul的显示到第几张了，从0开始数
+    let idx = 0;
+    // 监听
+    rightBtn.onclick = function () {
+        if (!lock) return;
+        lock = false;
+        // 给list加过渡属性，为什么呢？css里面不是已经加了吗？这是因为最后一张图片会把过渡去掉
+        list.style.transition = 'left .5s ease 0s';
+
+        idx++;
+        // 检验轮播到头了没
+        if (idx > 5) {
+            // 设置一个延时器，将ul瞬间拉回0的位置；延时器的作用是让过度动画结束之后执行
+            setTimeout(function () {
+                // 取消掉过渡效果，因为要的是瞬间移动到第一张，不是划到第一张
+                list.style.transition = 'none';
+                list.style.left = 0 + 'px';
+                idx = 0;
+            }, 500);
+            // 这个延时的时间和过渡的是一样的
+        }
+        list.style.left = -idx * 200 + 'px';
+
+        // 函数节流
+        setTimeout(function () {
+            lock = true;
+        }, 500);
+    }
+    leftBtn.onclick = function () {
+        if (!lock) return;
+        lock = false;
+        // 判断是不是第0张，如果是，就要瞬间用假的替换真的
+        if (idx === 0) {
+            list.style.transition = 'none';
+            list.style.left = -6 * 200 + 'px';
+            // 拉到6的最后一张
+            // 设置延时器，这个延时器的延时时间可以是0毫秒，虽然是0毫秒，但是可以让我们过渡显示瞬间取消，然后再加上
+            setTimeout(function () {
+                list.style.transition = 'left .5s ease 0s';
+                idx = 5;
+                list.style.left = -idx * 200 + 'px';
+            }, 0);
+        } else {
+            idx--;
+            list.style.left = -idx * 200 + 'px';
+        }
+        // 函数节流
+        setTimeout(function () {
+            lock = true;
+        }, 500);
+    }
+</script>
+</body>
+</html>

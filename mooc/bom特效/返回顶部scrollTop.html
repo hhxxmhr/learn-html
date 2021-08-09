@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回顶部</title>
+    <style>
+        body {
+            height: 5000px;
+            background-color: pink;
+        }
+
+        .button {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background-color: transparent;
+            cursor: pointer;
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+<div class="button" id="button">goTop</div>
+<script>
+    let button = document.getElementById('button');
+    let timer;
+    button.onclick = function () {
+        // 设表先关
+        clearInterval(timer);
+        // 设置定时器
+        timer = setInterval(function () {
+            // 不断让scrollTop减少
+            document.documentElement.scrollTop -= 20;
+            // 定时器肯定要停
+            if (document.documentElement.scrollTop <= 0) {
+                clearInterval(timer);
+            }
+        }, 20);
+    }
+</script>
+</body>
+</html>

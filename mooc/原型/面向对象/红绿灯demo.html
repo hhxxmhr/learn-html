@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>红绿灯demo</title>
+    <style>
+        #box img {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    function TrafficLights() {
+        // 红色1、黄色2、绿色3
+        this.color = 1;
+        // 调用自己的初始化方法
+        this.init();
+        // 绑定监听
+        this.bindEvent()
+    }
+
+    // 初始化方法
+    TrafficLights.prototype.init = function () {
+        // 创建自己的dom
+        this.dom = document.createElement('img');
+        // 设置src属性
+        this.dom.src = 'images/tx' + this.color + '.jpg';
+        // 追加元素
+        box.appendChild(this.dom);
+    }
+    // 监听方法
+    TrafficLights.prototype.bindEvent = function () {
+        // 备份上下文，此时这里的this指的是TrafficLights实例
+        let self = this;
+        // 当自己的dom被点击的时候，调用自己的changeImage方法
+        this.dom.onclick = function () {
+            self.changeImage();
+        }
+    }
+    // 切换图片方法
+    TrafficLights.prototype.changeImage = function () {
+        /*if (this.color === 1) {
+            this.color = 2;
+        } else if (this.color === 2) {
+            this.color = 3;
+        } else {
+            this.color = 1;
+        }*/
+        // 改变自己的color属性，从而有一种'自治'的感觉，自己管理自己，不干扰别的
+        this.color++;
+        if (this.color === 4) {
+            this.color = 1;
+        }
+        // 设置src属性
+        this.dom.src = 'images/tx' + this.color + '.jpg';
+    }
+    let box = document.getElementById('box');
+    new TrafficLights();
+    new TrafficLights();
+    new TrafficLights();
+    new TrafficLights();
+</script>
+</body>
+</html>

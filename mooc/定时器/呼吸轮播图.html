@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>呼吸轮播图</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 3000px;
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #eeeeee;
+            margin: 50px auto;
+        }
+
+        .box ul {
+            list-style: none;
+        }
+
+        .box ul li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            /*透明度都是0*/
+            opacity: 0;
+            transition: opacity 1s ease 0s;
+        }
+
+        /*只有第一张图片透明度1*/
+        .box ul li:first-child {
+            opacity: 1;
+        }
+
+        .box a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: pink;
+        }
+
+        .box a.left-btn {
+            left: 20px;
+        }
+
+        .box a.right-btn {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <a href="#" class="left-btn"></a>
+    <a href="#" class="right-btn"></a>
+</div>
+<script>
+    // 函数节流的锁
+    let lock = true;
+    // 获取按钮和ul
+    let list = document.getElementById('list');
+    let leftBtn = document.getElementsByClassName('left-btn')[0];
+    let rightBtn = document.getElementsByClassName('right-btn')[0];
+    let lis = list.getElementsByTagName('li');
+
+    // 当前ul的显示到第几张了，从0开始数
+    let idx = 0;
+    // 监听
+    rightBtn.onclick = function () {
+        if (!lock) return;
+        lock = false;
+        // 还没有改idx,此时的idx这个图片是老图，老图淡出
+        lis[idx].style.opacity = '0';
+
+        idx++;
+
+        // 检验是不是最后一张图片
+        if (idx > 5) {
+            idx = 0;
+        }
+        // 改了idx,此时的idx这个图片是新图，新图淡入
+        lis[idx].style.opacity = '1';
+
+        // 函数节流
+        setTimeout(function () {
+            lock = true;
+        }, 500);
+    }
+    leftBtn.onclick = function () {
+        if (!lock) return;
+        lock = false;
+        lis[idx].style.opacity = '0';
+
+        idx--;
+
+        // 检验是不是第一张图片
+        if (idx < 0) {
+            idx = 5;
+        }
+        // 改了idx,此时的idx这个图片是新图，新图淡入
+        lis[idx].style.opacity = '1';
+        // 函数节流
+        setTimeout(function () {
+            lock = true;
+        }, 500);
+    }
+</script>
+</body>
+</html>

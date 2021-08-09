@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>楼层导航小效果</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-part {
+            width: 400px;
+            background-color: pink;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        nav {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .current {
+            background-color: palegreen;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul id="list">
+        <li data-n="科技" class="current">科技</li>
+        <li data-n="体育">体育</li>
+        <li data-n="新闻">新闻</li>
+        <li data-n="娱乐">娱乐</li>
+        <li data-n="视频">视频</li>
+    </ul>
+</nav>
+<section class="content-part" style="height: 674px" data-n="科技">科技栏目</section>
+<section class="content-part" style="height: 567px" data-n="体育">体育栏目</section>
+<section class="content-part" style="height: 345px" data-n="新闻">新闻栏目</section>
+<section class="content-part" style="height: 678px" data-n="娱乐">娱乐栏目</section>
+<section class="content-part" style="height: 765px" data-n="视频">视频栏目</section>
+<script>
+    // 因为需要监听的元素过多，所以
+    // 使用事件委托给li添加监听
+    let list = document.getElementById('list');
+    list.onclick = function (e) {
+        if (e.target.tagName.toLowerCase() === 'li') {
+            // 获得当前点击的li的自定义属性，方便对应上是哪个模块
+            let n = e.target.getAttribute('data-n');
+            // 用属性选择器（即方括号选择器）来寻找带有相同data-n的content-part
+            let contentPart = document.querySelector('.content-part[data-n=' + n + ']');
+            // 让页面的卷动自动成为这个盒子的offsetTop值
+            document.documentElement.scrollTop = contentPart.offsetTop;
+        }
+    }
+
+    // 在页面加载完成后，将所有的content-part盒子的offsetTop值存入数组，以便区分检测当前是哪个content里面
+    let contents = document.getElementsByClassName('content-part');
+    let offsetTopArr = [];
+    for (let i = 0; i < contents.length; i++) {
+        offsetTopArr.push(contents[i].offsetTop);
+    }
+    // 为了让数组最后一个方便比较，存入一个无穷大
+    offsetTopArr.push(Infinity);
+
+    // 函数节流，不要一直触发滚动事件
+    let nowFloor = -1;
+
+    // 监听窗口的卷动
+    window.onscroll = function () {
+        let floor = 0;
+        let scrollTop = document.documentElement.scrollTop;
+        for (let i = 0; i < offsetTopArr.length; i++) {
+            if (scrollTop >= offsetTopArr[i] && scrollTop < offsetTopArr[i + 1]) {
+                floor = i;
+                break;
+            }
+        }
+        // 如果当前所在楼层和变量不一致，就表示换楼了
+        if (nowFloor !== floor) {
+            console.log(floor);
+            // 让全局变量改变为这个楼层
+            nowFloor = floor;
+
+            // 设置高光样式，排他思想
+            let lis = document.getElementsByTagName('li');
+            for (let i = 0; i < lis.length; i++) {
+                if (floor === i) {
+                    lis[i].className = 'current';
+                } else {
+                    lis[i].className = '';
+                }
+            }
+        }
+
+
+    }
+</script>
+</body>
+</html>
