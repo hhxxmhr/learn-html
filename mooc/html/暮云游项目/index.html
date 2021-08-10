@@ -134,11 +134,24 @@
         </div>
     </div>
 </header>
-<section class="banner">
-    <img src="image/banner1.jpg" alt="bgc">
-    <nav class="center-wrap banner-nav">
-        <div class="left"></div>
-        <div class="right"></div>
+<section class="banner" id="banner">
+    <ul id="carousel" class="carousel">
+        <li><img src="image/banner1.jpg" alt="banner"></li>
+        <li><img src="image/banner2.jpg" alt="banner"></li>
+        <li><img src="image/banner3.jpg" alt="banner"></li>
+        <li><img src="image/banner4.jpg" alt="banner"></li>
+        <li><img src="image/banner5.jpg" alt="banner"></li>
+    </ul>
+    <ol class="circle" id="circle">
+        <li data-n="0" class="current"></li>
+        <li data-n="1"></li>
+        <li data-n="2"></li>
+        <li data-n="3"></li>
+        <li data-n="4"></li>
+    </ol>
+    <nav class="banner-nav">
+        <div class="left" id="left"></div>
+        <div class="right" id="right"></div>
         <ul>
             <li>
                 <dl>
@@ -500,6 +513,7 @@
         </div>
     </nav>
 </section>
+<script src="js/carousel.js"></script>
 <!--热门广告-->
 <section class="hot-ads clearfix">
     <div class="center-wrap">

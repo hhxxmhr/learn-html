@@ -239,11 +239,71 @@
 
 .banner {
     position: relative;
+    /*最后加上溢出隐藏*/
+    overflow: hidden;
 }
 
-.banner img {
-    /*不让图片无条件的缩放，会影响到里面的菜单栏*/
-    min-width: 1152px;
+.banner .circle {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 20px;
+    z-index: 9999;
+}
+
+.banner .circle li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: #fff;
+    transition: all .5s ease 0s;
+    cursor: pointer;
+}
+
+.banner .circle li.current {
+    width: 30px;
+}
+
+.banner .circle li:last-child {
+    margin-right: 0;
+}
+
+/*1、一张图片的时候*/
+/*.banner img {
+     !*不让图片无条件的缩放，会影响到里面的菜单栏*!
+     min-width: 1152px;
+     width: 100%;
+     !*图片不会产生缝隙 *!
+     vertical-align: middle;
+}*/
+
+/*2、轮播图的布局*/
+/*ul是整个窗口的6倍*/
+.banner .carousel {
+    width: 600%;
+    /*里面的元素是浮动的，所以要清楚浮动，这样父盒子也就拥有了高度*/
+    overflow: hidden;
+    /*translateX中的百分数表示相对于它本身的宽度的多少倍*/
+    /*transform: translateX(-16.666%);*/
+    /*在此处如果用定位+left会受父元素的影响*/
+
+    /*添加过渡*/
+    transition: transform .5s ease 0s;
+}
+
+
+/*li是ul的六分之一宽*/
+.banner .carousel li {
+    float: left;
+    width: 16.666%;
+}
+
+/*让图片和li一样宽*/
+.banner .carousel li img {
     width: 100%;
     /*图片不会产生缝隙 */
     vertical-align: middle;
@@ -256,8 +316,8 @@
     transform: translateX(-50%);
     /*这个不可以省略，如果省略了她的高度就是0
     那么她的子盒子设置16。66%就没有意义*/
+    width: 1152px;
     height: 100%;
-    /*background-color: pink;*/
 }
 
 .banner .banner-nav ul {
@@ -385,7 +445,7 @@
 }
 
 .banner .banner-nav .menus-box .current {
-    display: block;
+    /*display: block;*/
 }
 
 .banner .banner-nav .menus-box .menu a {
