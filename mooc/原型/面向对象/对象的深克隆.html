@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的深克隆</title>
+</head>
+<body>
+<script>
+    let obj1 = {
+        a: 1,
+        b: 2,
+        c: [33, 44, {
+            m: 55,
+            n: 66,
+            p: [77, 88]
+        }]
+    };
+
+    function deepClone(o) {
+        let result;
+        // 判断o是对象还是数组
+        if (Array.isArray(o)) {
+            result = [];
+            for (let i = 0; i < o.length; i++) {
+                result.push(deepClone(o[i]));
+            }
+        } else if (typeof o === 'object') {
+            result = {};
+            for (let oKey in o) {
+                result[oKey] = deepClone(o[oKey]);
+            }
+        } else {
+            result = o;
+        }
+        return result;
+    }
+
+    console.log(deepClone(obj1))
+</script>
+</body>
+</html>
