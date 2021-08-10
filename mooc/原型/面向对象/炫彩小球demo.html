@@ -9,7 +9,7 @@
         }
 
         .ball {
-            position: relative;
+            position: absolute;
             border-radius: 50%;
         }
     </style>
@@ -66,7 +66,7 @@
         this.opacity -= 0.01;
         this.dom.style.opacity = this.opacity;
 
-        if (this.opacity <= 0) {
+        if (this.opacity < 0) {
             // 从数组中删除这个实例
             for (let i = 0; i < ballArr.length; i++) {
                 if (ballArr[i] === this) {
