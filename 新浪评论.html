@@ -23,7 +23,6 @@
     }
 
     #ul1 li {
-        border: solid green;
         border-bottom: 1px #999999 dashed;
         padding: 10px;
         list-style: none;
@@ -49,6 +48,8 @@
                 oUl.appendChild(oLi);
             }
             oLi.style.height = '0';
+            console.log('oLi.clientHeight ' + oLi.clientHeight);
+            console.log('oLi.offsetHeight ' + oLi.offsetHeight);
             perfectStartMove(oLi, {height: oLi.offsetHeight}, function () {
                 perfectStartMove(oLi, {opacity: 100})
             })

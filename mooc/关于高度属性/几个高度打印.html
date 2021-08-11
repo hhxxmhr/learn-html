@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>几个高度打印</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 400px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: pink;
+            overflow: auto;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 900px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="box2"></div>
+</div>
+<script>
+    let box = document.getElementsByClassName('box')[0];
+    console.log('box.clientHeight ' + box.clientHeight); // box.clientHeight 600
+    console.log('box.scrollHeight ' + box.scrollHeight); // box.scrollHeight 900
+    console.log('box.scrollTop ' + box.scrollTop); // box.scrollTop 0....100..300变化
+    box.onscroll = function () {
+        console.log('box.scrollTop ' + box.scrollTop);
+    }
+</script>
+</body>
+</html>
