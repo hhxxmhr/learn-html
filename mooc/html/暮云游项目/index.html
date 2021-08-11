@@ -149,41 +149,41 @@
         <li data-n="3"></li>
         <li data-n="4"></li>
     </ol>
-    <nav class="banner-nav">
+    <nav class="banner-nav" id="banner-nav">
         <div class="left" id="left"></div>
         <div class="right" id="right"></div>
-        <ul>
-            <li>
+        <ul id="banner-nav-ul">
+            <li data-t="hk">
                 <dl>
                     <dt>哈哈哈</dt>
                     <dd>北大荒精神吧</dd>
                 </dl>
             </li>
-            <li>
+            <li data-t="jp">
                 <dl>
                     <dt>哈哈哈</dt>
                     <dd>北大荒精神吧</dd>
                 </dl>
             </li>
-            <li>
+            <li data-t="as">
                 <dl>
                     <dt>哈哈哈</dt>
                     <dd>北大荒精神吧</dd>
                 </dl>
             </li>
-            <li>
+            <li data-t="eu">
                 <dl>
                     <dt>哈哈哈</dt>
                     <dd>北大荒精神吧</dd>
                 </dl>
             </li>
-            <li>
+            <li data-t="au">
                 <dl>
                     <dt>哈哈哈</dt>
                     <dd>北大荒精神吧</dd>
                 </dl>
             </li>
-            <li>
+            <li data-t="gu">
                 <dl>
                     <dt>哈哈哈</dt>
                     <dd>北大荒精神吧</dd>
@@ -191,7 +191,7 @@
             </li>
         </ul>
         <div class="menus-box">
-            <div class="menu current">
+            <div class="menu" data-t="gu">
                 <dl>
                     <dt>港澳台</dt>
                     <dd>
@@ -513,6 +513,7 @@
         </div>
     </nav>
 </section>
+<script src="js/menu.js"></script>
 <script src="js/carousel.js"></script>
 <!--热门广告-->
 <section class="hot-ads clearfix">
@@ -904,5 +905,8 @@
         </div>
     </div>
 </footer>
+<!--返回顶部按钮-->
+<a href="javascript:;" class="backToTop" id="backToTop">返回<br>顶部</a>
+<script src="js/backToTop.js"></script>
 </body>
 </html>
