@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数参数默认值</title>
+</head>
+<body>
+<script>
+    // 给函数的参数设置默认值
+    // const logUser = (canshu = {}) => console.log(username, age, sex);
+    // 给函数的参数解构赋值
+    // const logUser = ({username, age, sex} = {}) => console.log(username, age, sex);
+    // 给解构赋值添加默认值
+    const logUser = ({username = 'm', age = 22, sex = 'male'} = {}) => console.log(username, age, sex);
+    logUser();
+
+</script>
+</body>
+</html>

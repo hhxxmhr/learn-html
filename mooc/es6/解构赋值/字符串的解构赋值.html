@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串的解构赋值</title>
+</head>
+<body>
+<script>
+    let [a, b, , , c] = 'hello';
+    console.log(a, b, c); // h e o  按照字符串的下标
+
+    let {0: h, 1: e, 4: o, length} = 'hello';
+    console.log(h, e, o, length); // // h e o 5 对应的属性名是下标
+</script>
+</body>
+</html>

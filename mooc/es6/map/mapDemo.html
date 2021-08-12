@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mapDemo</title>
+</head>
+<body>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+
+<script>
+    let [p1, p2, p3] = document.querySelectorAll('p');
+
+    let map = new Map([
+        [p1, {color: 'red', backgroundColor: 'blue'}],
+        [p2, {color: 'green', backgroundColor: 'yellow'}],
+        [p3, {color: 'gray', backgroundColor: 'pink'}],
+    ]);
+    console.log(map);
+    map.forEach(function (style, elem) {
+        for (let s in style) {
+            elem.style[s] = style[s];
+        }
+    })
+    // [p1,p2,p3].forEach(function (value) {
+    //     value.style.color = map.get(value).color;
+    //     value.style.background = map.get(value).backgroundColor;
+    //     console.log(map.get(value));
+    // })
+</script>
+</body>
+</html>

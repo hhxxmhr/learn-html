@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>应用</title>
+    <style>
+        .btn {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 0 auto 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="btn">1</div>
+<div class="btn">2</div>
+<script>
+    let btns = document.querySelectorAll('.btn');
+    // 1、var
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function () {
+            console.log(i); // 每次点击都是2
+        }
+    }
+    // 因为var是没有作用域的，所以i就是全局作用域里的全局变量。每次++执行后，最后全局作用里的i=2
+    // 虽然循环里面有函数，但是只有当执行的时候，即只有点击了，才会有函数作用域。
+    // 所以每次点击，函数输出的就是全局作用域里的i=2
+
+    // 2、闭包
+    for (var j = 0; j < btns.length; j++) {
+        (function (index) {
+            btns[index].onclick = function () {
+                console.log(index); // 0 1
+            }
+        })(j);
+    }
+    // 因为var是没有作用域的，所以i就是全局作用域里的全局变量。每次++执行后，最后全局作用里的j=2
+    // for每循环一次，就有一个立即执行函数（执行了），也就有个函数作用域。
+    // 当每次点击的时候，输出的就是函数作用域里的参数index
+
+    // 3、es6--let/const  形成块级作用域
+    for (let k = 0; k < btns.length; k++) {
+        btns[k].onclick = function () {
+            console.log(k); // 0 1
+        }
+    }
+    // let和for形成块级作用域，i是块级作用域里的变量
+    // 循环三次，形成3个块级作用域
+    // 函数作用域里向外层查找i,即在外层块级作用域里找到了i,输出每个块级作用域的i值
+</script>
+</body>
+</html>

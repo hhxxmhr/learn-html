@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>forEach</title>
+</head>
+<body>
+<script>
+    let set = new Set();
+    set.add(1).add(2);
+    set.forEach(() => {
+        console.log(this)
+    }, set)
+</script>
+</body>
+</html>

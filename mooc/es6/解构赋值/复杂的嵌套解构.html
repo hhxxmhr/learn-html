@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复杂的嵌套解构</title>
+</head>
+<body>
+<script>
+    const obj = {
+        x: 1,
+        y: [22, 33, 44],
+        z: {a: 'nice', b: 1}
+    }
+    // 只想要y数组里的33
+    // 先对象解构，然后再数组解构
+    const {y: y, y: [, yy], z, z: {a}} = obj;
+    console.log(y);
+    console.log(yy);
+    console.log(z);
+    console.log(a);
+</script>
+</body>
+</html>

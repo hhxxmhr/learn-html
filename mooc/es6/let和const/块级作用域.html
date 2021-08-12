@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块级作用域</title>
+</head>
+<body>
+<script>
+    for (var i = 0; i < 3; i++) {
+    }
+    console.log(i); // 打印3
+
+    for (let j = 0; j < 3; j++) {
+    }
+    console.log(j); // 报错
+</script>
+</body>
+</html>

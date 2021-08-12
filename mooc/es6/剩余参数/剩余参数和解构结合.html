@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>剩余参数和解构结合</title>
+</head>
+<body>
+<script>
+    const func = ([num, ...args]) => {
+        console.log(num); // 1
+        console.log(args); // [2,3]
+    }
+    func([1, 2, 3]);
+
+    const {y, a, ...args} = {x: 1, y: 2, a: 3, b: 4};
+    console.log(y, a, args) // 2 3 Object { x: 1, b: 4 }
+
+    console.log([...'nice']); // [ "n", "i", "c", "e" ]
+    console.log({...'nice'}); // { 0: "n", 1: "i", 2: "c", 3: "e" }
+    console.log(...'nice'); // n i c e
+    console.log(1, 2, 3);
+</script>
+</body>
+</html>
