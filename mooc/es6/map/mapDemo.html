@@ -13,16 +13,28 @@
 <script>
     let [p1, p2, p3] = document.querySelectorAll('p');
 
+    // 方法1
     let map = new Map([
         [p1, {color: 'red', backgroundColor: 'blue'}],
         [p2, {color: 'green', backgroundColor: 'yellow'}],
         [p3, {color: 'gray', backgroundColor: 'pink'}],
     ]);
-    console.log(map);
     map.forEach(function (style, elem) {
         for (let s in style) {
             elem.style[s] = style[s];
         }
+    })
+
+    // 方法2：将对象换成map
+    let map1 = new Map([
+        [p1, new Map([['color', 'red'], ['backgroundColor', 'blue']])],
+        [p2, new Map([['color', 'green'], ['backgroundColor', 'yellow']])],
+        [p3, new Map([['color', 'gray'], ['backgroundColor', 'pink']])]
+    ]);
+    map1.forEach((style, elem) => {
+        style.forEach((value, key) => {
+            elem.style[key] = value;
+        })
     })
     // [p1,p2,p3].forEach(function (value) {
     //     value.style.color = map.get(value).color;
