@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<script type="module">
+    import {ajax, get, getJSON, post} from './index.js'
+
+    const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+    ajax(url, {
+        method: 'POST',
+        params: {name: '呜呜呜'},
+        data: {age: 18},
+        responseType: 'json',
+        success(res) {
+            console.log(res)
+        },
+        error(res) {
+            console.log(res)
+        }
+    })
+</script>
+</body>
+</html>

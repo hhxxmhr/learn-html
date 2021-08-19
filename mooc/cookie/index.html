@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<button id="en">英文</button>
+<button id="cn">中文</button>
+<script type="module">
+    import {get, remove, set} from './cookie.js'
+
+    let enBtn = document.getElementById('en');
+    let cnBtn = document.getElementById('cn');
+    enBtn.onclick = () => {
+        // set('language', 'en', {
+        //     maxAge: 30 * 24 * 3600
+        // });
+        // window.location = 'index.html'
+    }
+
+    cnBtn.onclick = () => {
+        console.log('333')
+        console.log(this)
+        // set('language', 'cn', {
+        //     maxAge: 30 * 24 * 3600
+        // });
+        // window.location = 'index.html'
+    }
+    remove('language')
+    /* set('name', 'zs');
+     set('哈哈哈', '呼呼呼')
+     remove('name')
+     console.log(get('name'))
+     console.log(get('哈哈哈'))*/
+</script>
+</body>
+</html>

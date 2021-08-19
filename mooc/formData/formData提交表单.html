@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formData提交表单</title>
+</head>
+<form id="login" action="https://www.imooc.com/api/http/search/suggest?words=js" method="post" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="username" placeholder="用户名">
+    <input type="password" name="password" placeholder="密码">
+    <input id="submit" type="submit" value="登录">
+</form>
+<body>
+<script>
+    const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+    let login = document.getElementById('login');
+    let {username, password} = login;
+    let submit = document.getElementById('submit');
+    submit.addEventListener('click', (e) => {
+        // 阻止表单自动提交
+        e.preventDefault();
+        // 表单数据验证略过
+        // 发送ajax请求
+        let xhr = new XMLHttpRequest();
+        // 绑定事件
+        xhr.addEventListener('load', () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                console.log(xhr.response);
+            }
+        }, false);
+        // 准备发送
+        xhr.open('POST', url, true);
+        /*// 设置请求头参数类型
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        // 组织参数
+        const data = `username=${username.value}&password=${password.value}`;*/
+        // FormData解决组织参数过多的情况
+        let formData = new FormData(login);
+
+        // 发送
+        // xhr.send(data);
+        // Content-Type
+        // form-data
+        xhr.send(formData);
+        // Content-Type
+        // multipart/form-data; boundary=---------------------------515284560211851827886318316
+    }, false)
+</script>
+</body>
+</html>
