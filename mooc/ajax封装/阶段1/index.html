@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <title>使用 Promise 改造封装好的 Ajax</title>
 </head>
 <body>
 <script type="module">
     import {ajax, get, getJSON, post} from './index.js'
 
     const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
-    ajax(url, {
+    /*ajax(url, {
         method: 'POST',
         params: {name: '呜呜呜'},
         data: {age: 18},
@@ -20,7 +20,19 @@
         error(res) {
             console.log(res)
         }
-    })
+    });*/
+    const p = getJSON(url,
+        {
+            params: {username: 'alex'},
+            data: {age: 18},
+        }
+    );
+    console.log(p);
+    p.then(res => {
+        console.log(res);
+    }).catch(err => {
+        console.log(err);
+    });
 </script>
 </body>
 </html>

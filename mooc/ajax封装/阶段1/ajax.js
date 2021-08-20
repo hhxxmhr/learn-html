@@ -12,12 +12,17 @@ class Ajax {
 
     init() {
         this.xhr = new XMLHttpRequest();
+        // 绑定响应事件处理程序
         this.bindEvents();
         this.xhr.open(this.options.method, this.url + this.addParam(), true);
-        // 设置属性
+        // 设置 responseType
         const {responseType, withCredentials, timeoutTime} = this.options;
         this.xhr.responseType = responseType;
-        this.xhr.withCredentials = withCredentials;
+        // 设置跨域是否携带 cookie
+        if (withCredentials) {
+            this.xhr.withCredentials = withCredentials;
+        }
+        // 设置超时
         if (this.options.timeoutTime > 0) {
             this.xhr.timeout = timeoutTime;
         }
@@ -34,9 +39,11 @@ class Ajax {
             if (data instanceof FormData) {
                 resultData = data;
             } else if (this.options.contentType.toLowerCase().includes(CONTENT_TYPE_FORM_URLENCODED)) {
+                // 发送 application/x-www-form-urlencoded 格式的数据
                 resultData = serialize(data);
                 this.xhr.setRequestHeader('Content-Type', CONTENT_TYPE_FORM_URLENCODED);
             } else if (this.options.contentType.toLowerCase().includes(CONTENT_TYPE_JSON)) {
+                // 发送 application/json 格式的数据
                 resultData = serializeJSON(data);
                 this.xhr.setRequestHeader('Content-Type', CONTENT_TYPE_JSON);
             } else {
@@ -45,6 +52,8 @@ class Ajax {
                 resultData = data;
             }
             this.xhr.send(resultData);
+        } else {
+            return this.xhr.send(null);
         }
 
     }
