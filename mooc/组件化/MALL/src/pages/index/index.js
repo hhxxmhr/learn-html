@@ -1,0 +1,11 @@
+// css
+import './css/reset.css'
+import './css/base.css'
+import './css/index.css'
+// js
+import './js/backToTop'
+import './js/carousel'
+import './js/menu'
+// 组件
+import '../../components/topbar/index.js'
+import '../../pages/index/components/slider/index'

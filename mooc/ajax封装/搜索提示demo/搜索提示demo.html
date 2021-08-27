@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索提示</title>
+</head>
+<body>
+<input id="search" type="text">
+<ul id="result"></ul>
+<script type="module">
+    import {ajax, get, getJSON, post} from '../阶段1/index.js'
+
+    const url = 'https://www.imooc.com/api/http/search/suggest?words=';
+    let search = document.getElementById('search');
+    let result = document.getElementById('result');
+    let timeout;
+    search.oninput = function () {
+        if (search.value.trim() !== '') {
+            // 不想每输入一个字符就发送一个请求，请求太快，就使用一个定时器
+            // todo 技巧：每次发送请求前查看之前，如果也有的话，就清除（不请求了）
+            if (timeout) {
+                clearTimeout(timeout);
+            }
+            timeout = setTimeout(handleInputEvent, 300);
+        } else {
+            result.style.display = 'none';
+        }
+    }
+    const handleInputEvent = () => {
+        getJSON(`${url}${search.value}`)
+            .then(res => {
+                let html = '';
+                for (const item of res.data) {
+                    html += `<li>${item.word}</li>`
+                }
+                result.innerHTML = html;
+                result.style.display = '';
+            });
+    }
+</script>
+</body>
+</html>

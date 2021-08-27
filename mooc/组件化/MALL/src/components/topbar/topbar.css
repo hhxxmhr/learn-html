@@ -1,0 +1,110 @@
+.bar-warp .top-bar {
+    height: 32px;
+    line-height: 32px;
+    background-color: #2a2a2a;
+}
+
+.bar-warp .top-bar a {
+    color: #ffffff;
+}
+
+.bar-warp .top-bar .shortcut-links {
+    float: left;
+}
+
+.bar-warp .top-bar .icons {
+    float: right;
+    width: 225px;
+    color: white;
+}
+
+.bar-warp .top-bar .icons a, .bar-warp .top-bar .icons span {
+    margin-right: 10px;
+}
+
+.bar-warp .top-bar .icons a:last-child {
+    margin-right: 0;
+}
+
+.bar-warp .top-bar .shortcut-links > ul {
+
+}
+
+/*因为每一个li里面还会有详细的列表(子菜单)，所以加上亲代选择器，以免影响之后的范围*/
+.bar-warp .top-bar .shortcut-links > ul > li {
+    float: left;
+    /*伪元素小三角定位在padding区域里面，li和li之间用margin*/
+    margin-right: 18px;
+    font-size: 14px;
+
+}
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu {
+    padding-right: 12px;
+    position: relative;
+}
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu .menu {
+    position: absolute;
+    /*todo 如果这里top值大于32，hover的时候就移动不到menu上；
+       如果必须留有空隙的话，就在外面嵌套白色盒子，再padding实际内容区域，*/
+    top: 32px;
+    left: 0;
+    padding: 5px;
+    z-index: 9999;
+    background-color: white;
+    display: none;
+}
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu .sq-menu {
+    width: 111px;
+    /*高度由内容撑开*/
+}
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu .sc-menu {
+    width: 80px;
+    /*高度由内容撑开*/
+}
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu .jdms-menu {
+    width: 80px;
+    /*高度由内容撑开*/
+}
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu .menu li {
+    line-height: 20px;
+}
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu .menu li a {
+    font-size: 12px;
+    color: #1c1f21;
+}
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu .menu li a:hover {
+    color: pink;
+}
+
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu:hover .menu {
+    display: block;
+}
+
+/*三角下拉箭头*/
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    transform: rotate(45deg);
+    /*添加过渡*/
+    transition: all 0.3s;
+}
+
+.bar-warp .top-bar .shortcut-links > ul > li.have-menu:hover::after {
+    transform: rotate(225deg);
+    top: 12px;
+}

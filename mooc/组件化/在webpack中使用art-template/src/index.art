@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+
+// 方式一：将script对应的id替换为路径，参数照传
+<% include('./common/header.art',{header:'我是首页的头部'}) %>
+<p>我是首页</p>
+<% include('./common/footer.art',{footer:'我是首页的尾部'}) %>
+
+我想要的page:{{page}}
+</body>
+</html>

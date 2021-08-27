@@ -1,0 +1,882 @@
+.bar-warp {
+    min-width: 1152px;
+    height: 150px;
+}
+
+
+
+.main-nav {
+    height: 40px;
+    background-color: #20bd9a;
+}
+
+.main-nav ul li {
+    float: left;
+    margin-right: 18px;
+}
+
+.main-nav ul li.have-menu {
+    padding-right: 16px;
+    position: relative;
+}
+
+.main-nav ul li.have-menu .menu {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 5px;
+    z-index: 9999;
+    background-color: white;
+    display: none;
+}
+
+.main-nav ul li.have-menu .menu dl dt {
+    font-size: 16px;
+}
+
+.main-nav ul li.have-menu .menu dl dd a {
+    color: #1c1f21;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.main-nav ul li.have-menu .menu dl dd a:hover {
+    color: orange;
+}
+
+.main-nav ul li.have-menu:hover .menu {
+    display: block;
+}
+
+.main-nav ul li.have-menu .jp-menu {
+    width: 150px;
+}
+
+.main-nav ul li.have-menu .yh-menu {
+    width: 90px;
+}
+
+.main-nav ul li.have-menu .yl-menu {
+    width: 90px;
+}
+
+.main-nav ul li a {
+    line-height: 40px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.main-nav ul li.have-menu::after {
+    position: absolute;
+    top: 16px;
+    right: 0;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: #ffffff;
+    /*删除底边，防止旋转的时候围绕的中心点不是三角心的*/
+    border-bottom: none;
+    transition: transform .2s ease;
+}
+
+.main-nav ul li.have-menu:hover::after {
+    transform: rotate(180deg);
+}
+
+.header-con {
+    height: 36px;
+    padding: 21px 0;
+}
+
+.header-con h1 {
+    float: left;
+    /*line-height: 36px;*/
+    font-size: 24px;
+    color: #20bd9a;
+    font-weight: bold;
+}
+
+.header-con .search {
+    float: left;
+    margin-left: 20px;
+    width: 406px;
+    height: 36px;
+}
+
+.header-con .search input {
+    float: left;
+    width: 362px;
+    height: 34px;
+    border: 1px solid #20bd9a;
+    outline: none;
+    padding-left: 10px;
+    font-size: 14px;
+    border-radius: 4px 0 0 4px;
+}
+
+.header-con .search div {
+    float: left;
+    width: 32px;
+    height: 36px;
+    background-color: #20bd9a;
+    border: 0;
+    border-radius: 0 4px 4px 0;
+    text-align: center;
+    line-height: 36px;
+    color: white;
+}
+
+.banner {
+    width: 100%;
+    min-width: 1152px;
+    position: relative;
+    /*最后加上溢出隐藏*/
+    overflow: hidden;
+}
+
+.banner .circle {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 20px;
+    z-index: 9999;
+}
+
+.banner .circle li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: #fff;
+    transition: all .5s ease 0s;
+    cursor: pointer;
+}
+
+.banner .circle li.current {
+    width: 30px;
+}
+
+.banner .circle li:last-child {
+    margin-right: 0;
+}
+
+/*1、一张图片的时候*/
+/*.banner img {
+     !*不让图片无条件的缩放，会影响到里面的菜单栏*!
+     min-width: 1152px;
+     width: 100%;
+     !*图片不会产生缝隙 *!
+     vertical-align: middle;
+}*/
+
+/*2、轮播图的布局*/
+/*ul是整个窗口的6倍*/
+.banner .carousel {
+    width: 600%;
+    /*里面的元素是浮动的，所以要清楚浮动，这样父盒子也就拥有了高度*/
+    overflow: hidden;
+    /*translateX中的百分数表示相对于它本身的宽度的多少倍*/
+    /*transform: translateX(-16.666%);*/
+    /*在此处如果用定位+left会受父元素的影响*/
+
+    /*添加过渡*/
+    transition: transform .5s ease 0s;
+}
+
+
+/*li是ul的六分之一宽*/
+.banner .carousel li {
+    float: left;
+    width: 16.666%;
+}
+
+/*让图片和li一样宽*/
+.banner .carousel li img {
+    width: 100%;
+    /*图片不会产生缝隙 */
+    vertical-align: middle;
+}
+
+.banner .banner-nav {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    /*这个不可以省略，如果省略了她的高度就是0
+    那么她的子盒子设置16。66%就没有意义*/
+    width: 1152px;
+    height: 100%;
+}
+
+.banner .banner-nav ul {
+    /*这个不可以省略，如果省略了她的高度就是0
+    那么她的子盒子设置16。66%就没有意义*/
+    height: 100%;
+}
+
+.banner .banner-nav ul li {
+    position: relative;
+    height: 16.66%;
+    width: 296px;
+    background-color: rgba(0, 0, 0, .43);
+    border-bottom: 1px solid #9e9e9e;
+    box-sizing: border-box;
+}
+
+.banner .banner-nav ul li::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 27px;
+    height: 27px;
+    background: url('images/icons.png') no-repeat -21px -171px;
+}
+
+.banner .banner-nav ul li:nth-child(2)::before {
+    background: url('images/icons.png') no-repeat -21px -261px;
+}
+
+.banner .banner-nav ul li:nth-child(3)::before {
+    background: url('images/icons.png') no-repeat -21px -351px;
+}
+
+.banner .banner-nav ul li:nth-child(4)::before {
+    background: url('images/icons.png') no-repeat -21px -399px;
+}
+
+.banner .banner-nav ul li:nth-child(5)::before {
+    background: url('images/icons.png') no-repeat -21px -306px;
+}
+
+.banner .banner-nav ul li:nth-child(6)::before {
+    background: url('images/icons.png') no-repeat -21px -217px;
+}
+
+.banner .banner-nav ul li::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+}
+
+.banner .banner-nav ul li:last-child {
+    border-bottom: none;
+}
+
+.banner .banner-nav ul li.current {
+    background-color: rgba(0, 0, 0, .63);
+}
+
+.banner .banner-nav .left {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -38px;
+    width: 28px;
+    height: 44px;
+    background: url('images/icons.png') no-repeat -21px -94px;
+}
+
+.banner .banner-nav .left:hover {
+    opacity: .8;
+}
+
+.banner .banner-nav .right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -38px;
+    width: 28px;
+    height: 44px;
+    background: url('images/icons.png') no-repeat -21px -29px;
+}
+
+.banner .banner-nav .right:hover {
+    opacity: .8;
+}
+
+.banner .banner-nav ul li dl {
+    position: absolute;
+    height: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 42px;
+    color: white;
+}
+
+.banner .banner-nav ul li dl dt {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.banner .banner-nav ul li dl dd {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.banner .banner-nav .menus-box .menu {
+    position: absolute;
+    left: 296px;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .63);
+    color: white;
+    padding: 18px;
+    /*高度100%没法确定减去padding的值*/
+    box-sizing: border-box;
+    /*隐藏*/
+    display: none;
+    /*提高层级*/
+    z-index: 99999;
+}
+
+.banner .banner-nav .menus-box .current {
+    display: block;
+}
+
+.banner .banner-nav .menus-box .menu a {
+
+}
+
+.banner .banner-nav .menus-box .menu dl {
+    margin-bottom: 16px;
+}
+
+.banner .banner-nav .menus-box .menu dl dt {
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.banner .banner-nav .menus-box .menu dl dd a {
+    color: white;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.hot-ads {
+    margin: 32px 0;
+}
+
+.hot-ads ul li {
+    float: left;
+    width: 264px;
+    height: 110px;
+    margin-right: 32px;
+}
+
+.hot-ads ul li:last-child {
+    margin-right: 0;
+}
+
+.xxsw {
+    padding-top: 40px;
+    height: 698px;
+    background-color: #f7f7f7;
+}
+
+.xxsw .hd {
+    margin-bottom: 20px;
+    line-height: 52px;
+}
+
+.xxsw .hd h2 {
+    float: left;
+    margin-right: 20px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.xxsw .hd em {
+    float: left;
+
+}
+
+.xxsw ul li {
+    float: left;
+    width: 264px;
+    height: 270px;
+    margin-right: 32px;
+    margin-bottom: 32px;
+    background-color: #fff;
+}
+
+.xxsw ul li:nth-child(4n) {
+    margin-right: 0;
+}
+
+.xxsw ul li .pic-box {
+    position: relative;
+}
+
+.xxsw ul li .pic-box:hover .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .53);
+}
+
+
+.xxsw ul li .pic-box .circle {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, .53);
+    border-radius: 50%;
+    border: 2px solid white;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    opacity: 0;
+    transition: all .5s ease 0s;
+}
+
+.xxsw ul li .pic-box:hover .circle {
+    top: 50%;
+    opacity: 1;
+}
+
+.xxsw ul li img {
+    vertical-align: middle;
+}
+
+.xxsw ul li .text-box {
+    padding: 15px;
+    color: #1c1f21;
+    font-size: 14px;
+}
+
+.xxsw ul li:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+}
+
+.jjzyx {
+    height: 698px;
+    /*background-color: #f7f7f7;*/
+}
+
+.content-part .hd {
+    margin-bottom: 20px;
+}
+
+.content-part .hd h2 {
+    float: left;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.content-part .hd em {
+    float: left;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.content-part .hd ul {
+    float: right;
+    width: 546px;
+    /*往下挤一下*/
+    padding-top: 16px;
+}
+
+.content-part .hd ul li {
+    float: left;
+    margin-right: 16px;
+    font-size: 14px;
+}
+
+.content-part .hd ul li:last-child {
+    margin-right: 0;
+}
+
+.content-part .hd ul li a {
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.content-part .hd ul li.current {
+    border-bottom: 2px solid #20bd9a;
+    padding-bottom: 4px;
+}
+
+.content-part .hd ul li.current a {
+    color: #20bd9a;
+}
+
+.jjzyx .bd li {
+    float: left;
+    margin-bottom: 32px;
+}
+
+.jjzyx .bd li img {
+    vertical-align: middle;
+}
+
+.jjzyx .bd li.big {
+    width: 560px;
+    height: 270px;
+    background-color: #eeeeee;
+    position: relative;
+}
+
+.jjzyx .bd li.big .tag {
+    position: absolute;
+    top: 128px;
+    left: 0;
+    width: 60px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, .66);
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 12px;
+}
+
+
+.jjzyx .bd li.big a .info {
+    position: absolute;
+    width: 560px;
+    height: 102px;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .55);
+    color: white;
+    padding: 22px;
+    box-sizing: border-box;
+}
+
+.jjzyx .bd li.big a div p:first-child {
+    margin-bottom: 6px;
+}
+
+.jjzyx .bd li.pro {
+    position: relative;
+    margin-left: 32px;
+    width: 264px;
+    height: 270px;
+    background-color: #eeeeee;
+}
+
+.jjzyx .bd li.pro .tag {
+    position: absolute;
+    bottom: 86px;
+    left: 0;
+    width: 60px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, .66);
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 12px;
+}
+
+.jjzyx .bd li:nth-child(4) {
+    margin-left: 0;
+}
+
+.jjzyx .bd li.more {
+    position: relative;
+    padding: 40px 0;
+    margin-left: 32px;
+    width: 264px;
+    height: 270px;
+    text-align: center;
+    box-sizing: border-box;
+    /*过渡颜色*/
+    background-image: linear-gradient(180deg, #34c3bc 0%, #15af7a 98%);
+}
+
+.jjzyx .bd li a {
+    color: #666666;
+}
+
+.jjzyx .bd li .text-box {
+    padding: 20px;
+    font-size: 14px;
+}
+
+.jjzyx .bd li.more a p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.jjzyx .bd li.more a span {
+    color: white;
+    font-size: 36px;
+}
+
+.jjzyx .bd li.more a .more-li {
+    overflow: hidden;
+    position: absolute;
+    bottom: 10px;
+    left: 16%;
+}
+
+.jjzyx .bd li.more a .more-li li {
+    padding: 0 4px;
+    color: white;
+    border-right: 1px solid white;
+}
+
+.jjzyx .bd li.more a .more-li li:last-child {
+    border-right: none;
+}
+
+.ddwl {
+    height: 546px;
+    background-color: #F7F7F7;
+}
+
+.ddwl .bd .col {
+    float: left;
+    width: 364px;
+    height: 420px;
+    margin-right: 30px;
+}
+
+.ddwl .bd .col:last-child {
+    margin-right: 0;
+}
+
+.ddwl .bd .col .big-pic-box {
+    position: relative;
+    width: 364px;
+    height: 270px;
+    margin-bottom: 30px;
+}
+
+.ddwl .bd .col .big-pic-box .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 104px;
+    box-sizing: border-box;
+    padding: 17px 15px 0 17px;
+    background-color: rgba(0, 0, 0, .53);
+    color: white;
+    font-size: 14px;
+}
+
+.ddwl .bd .col .big-pic-box .info .bottom {
+    margin-top: 6px;
+}
+
+.ddwl .bd .col .big-pic-box .info .bottom p.tag {
+    float: left;
+}
+
+.ddwl .bd .col .big-pic-box .info .bottom p.price {
+    float: right;
+}
+
+.ddwl .bd .col .big-pic-box .info .bottom p.price strong {
+    color: red;
+}
+
+.ddwl .bd .col .grid {
+    width: 364px;
+    height: 120px;
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+.ddwl .bd .col .grid a .pic-box {
+    float: left;
+    width: 120px;
+    height: 120px;
+}
+
+.ddwl .bd .col .grid a .word-box {
+    float: right;
+    width: 244px;
+    height: 120px;
+    padding: 26px 18px 0;
+    box-sizing: border-box;
+    color: #333333;
+    font-size: 14px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .08);
+}
+
+.ddwl .bd .col .more {
+    position: relative;
+    padding: 40px 0;
+    width: 364px;
+    height: 270px;
+    background-image: linear-gradient(180deg, #ff6374 0%, #ff7368 98%);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.ddwl .bd .col .more a p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.ddwl .bd .col .more a span {
+    color: white;
+    font-size: 36px;
+}
+
+.ddwl .bd .col .more a .more-li {
+    overflow: hidden;
+    position: absolute;
+    bottom: 40px;
+    left: 95px;
+}
+
+.ddwl .bd .col .more a .more-li li {
+    float: left;
+    padding: 0 4px;
+    color: white;
+    border-right: 1px solid white;
+}
+
+.ddwl .bd .col .more a .more-li li:last-child {
+    border-right: none;
+}
+
+.tsdd {
+    height: 456px;
+}
+
+.tsdd .center-wrap .hd1 h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.tsdd .bd {
+    padding-top: 32px;
+}
+
+.tsdd .bd ul li {
+    float: left;
+    width: 264px;
+    height: 290px;
+    margin-right: 32px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .08);
+}
+
+.tsdd .bd ul li:last-child {
+    margin-right: 0;
+}
+
+.tsdd .bd ul li .word-box {
+    /*下 是 0*/
+    padding: 16px 14px 0;
+}
+
+.tsdd .bd ul li .word-box .pro-name {
+    font-size: 16px;
+    color: #000000;
+    font-weight: bold;
+    height: 48px;
+}
+
+.tsdd .bd ul li .word-box .score {
+    font-size: 13px;
+    color: orange;
+}
+
+.tsdd .bd ul li .word-box .comment {
+    font-size: 13px;
+}
+
+footer .part1 {
+    padding-top: 20px;
+    height: 220px;
+    background-color: #f7f7f7;
+}
+
+.part1 nav ul {
+    overflow: hidden;
+}
+
+.part1 nav ul li {
+    float: left;
+    border-right: 1px solid #333333;
+    padding: 0 30px;
+}
+
+.part1 nav ul li:first-child {
+    padding-left: 0;
+}
+
+.part1 nav ul li:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.part1 nav.dl-box {
+    margin-top: 20px;
+}
+
+.part1 nav.dl-box dl {
+    float: left;
+    width: 289px;
+    padding-left: 75px;
+    box-sizing: border-box;
+    margin-right: 30px;
+    position: relative;
+}
+
+.part1 nav.dl-box dl:last-child {
+    margin-right: 0;
+}
+
+.part1 nav.dl-box dl::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background-image: url(images/icons.png);
+}
+
+.part1 nav.dl-box dl.txfw::before {
+    background-position: -150px -178px;
+}
+
+.part1 nav.dl-box dl.axph::before {
+    background-position: -150px -104px;
+}
+
+.part1 nav.dl-box dl.ccsx::before {
+    background-position: -150px -31px;
+}
+
+.part1 nav.dl-box dl dt {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.backToTop {
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #cccccc;
+    color: #333333;
+    display: none;
+}
