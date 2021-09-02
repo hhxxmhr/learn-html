@@ -44,6 +44,42 @@
     margin-right: 0;
 }
 
+.product-container {
+    margin-bottom: 20px;
+}
+
+.back-container {
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    background-color: #fff;
+}
+
+.helper-container {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    line-height: 2;
+    background-color: #f7f7f7;
+}
+
+.helper-info-container {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.helper-back-container {
+    margin-bottom: 10px;
+}
+
+.footer-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 12px;
+    line-height: 2;
+    background-color: #363636;
+    color: #a6a6a6;
+}
+
 /*大屏下居中显示*/
 @media (min-width: 768px) {
     .slider-container .row {
@@ -128,7 +164,31 @@
     color: #ffffff;
 }
 
+.btn-share {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: 100% 100%;
+}
+
+.btn-share-weixin {
+    background-image: url(../img/weixin.svg);
+}
+
+.btn-share-weixin:hover {
+    background-image: url(../img/weixin-hover.svg);
+}
+
+.btn-share-weibo {
+    background-image: url(../img/weibo.svg);
+}
+
+.btn-share-weibo:hover {
+    background-image: url(../img/weibo-hover.svg);
+}
+
 /*组件 end*/
+
 /*内容 start*/
 
 .header-logo {
@@ -168,6 +228,77 @@
 
 .slider-btns .btn-rounded:last-child {
     margin-right: 0;
+}
+
+.product-link {
+    display: block;
+    overflow: hidden;
+}
+
+.product-img {
+    transition: transform 1s;
+}
+
+.product-img:hover {
+    transform: scale(1.2);
+}
+
+.back-container .btn-back {
+    display: block;
+    padding: 18px 0;
+    text-align: center;
+}
+
+.btn-back:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    left: 5px;
+    width: 10px;
+    height: 6px;
+    background-image: url("../img/up.svg");
+}
+
+.btn-back:hover:after {
+    background-image: url("../img/up-hover.svg");
+}
+
+.helper-list-title {
+    font-size: 16px;
+}
+
+.helper-list {
+    margin-bottom: 10px;
+}
+
+.helper-list .btn-share {
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.helper-list .btn-share:first-child {
+    margin-left: 0;
+}
+
+.footer-item {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.footer-item:first-child {
+    margin-left: 0;
+}
+
+.footer-link {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.footer-link:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 /*内容 end*/
