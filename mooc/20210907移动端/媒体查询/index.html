@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .row {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col {
+            padding: 10px 0;
+            background-color: pink;
+            border: 1px solid rebeccapurple;
+        }
+
+        /*        @media (max-width: 576px) {
+                    .col {
+                        width: 100%;
+                    }
+                }
+
+                @media (min-width: 577px) and (max-width: 768px) {
+                    .col {
+                        width: 50%;
+                    }
+                }
+
+                @media (min-width: 769px) and (max-width: 992px) {
+                    .col {
+                        width: 25%;
+                    }
+                }
+
+                @media (min-width: 993px) and (max-width: 1200px) {
+                    .col {
+                        width: 16.666666667%;
+                    }
+                }
+
+                @media (min-width: 1201px) {
+                    .col {
+                        flex: 1;
+                    }
+                }*/
+
+        /*另一种思路：pc first ,利用位置一层一层覆盖*/
+        /*        .col {
+                    !*直接这是最大屏的情况*!
+                    width: 8.3333333333333%;
+                }
+
+                @media (max-width: 1200px) {
+                    .col {
+                        width: 16.666666667%;
+                    }
+                }
+
+                @media (max-width: 992px) {
+                    .col {
+                        width: 25%;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .col {
+                        width: 50%;
+                    }
+                }
+
+                @media (max-width: 576px) {
+                    .col {
+                        width: 100%;
+                    }
+                }*/
+
+        /*还有一种思路：mobile first 移动优先 ,利用位置一层一层覆盖*/
+        .col {
+            /*直接这是最小屏的情况*/
+            width: 100%;
+        }
+
+        @media (min-width: 576px) {
+            .col {
+                width: 50%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .col {
+                width: 25%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .col {
+                width: 16.66666667%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .col {
+                width: 8.33333333%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+    <div class="col">
+        <img src="../../../img/1.jpg" alt="pic">
+    </div>
+
+</div>
+
+</body>
+</html>

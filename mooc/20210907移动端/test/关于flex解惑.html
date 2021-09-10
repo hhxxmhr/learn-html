@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            display: flex;
+            margin: 0 auto;
+            width: 400px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            /*flex:1 1 auto;
+            子项会增长变大占据flex容器中额外的剩余空间（flex-grow:1），
+            会收缩变小以适合容器（flex-shrink:1），
+            尺寸根据自身宽高属性进行调整（flex-basis:auto）。*/
+            /*flex: auto; */
+
+            /*flex:0 0 auto;
+            子项会不会增长变大占据flex容器中额外的剩余空间（flex-grow:0），
+            也不会收缩变小以适合容器（flex-shrink:0），
+            尺寸根据自身宽高属性进行调整（flex-basis:auto）。*/
+            flex: none;
+        }
+
+        /*https://www.zhangxinxu.com/wordpress/2019/12/css-flex-deep/*/
+        .money {
+            margin: 20px auto 0;
+            width: 500px;
+            height: 100px;
+            display: flex;
+            background-color: plum;
+        }
+
+        .zhang {
+            flex-grow: 0;
+            flex-shrink: 2;
+            flex-basis: 100px;
+        }
+
+        .xin {
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: 100px;
+        }
+
+        .xu {
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: 100px;
+        }
+
+        .shuai {
+            flex-grow: 3;
+            flex-shrink: 0;
+            flex-basis: 20px;
+        }
+
+        .ge {
+            flex-grow: 2;
+            flex-shrink: 0;
+            flex-basis: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <span>哈哈</span>
+    <span>嘻嘻</span>
+    <span>呼呼</span>
+    <span>啦啦</span>
+    <span>偏偏</span>
+    <!--    子元素们没有超出父容器。就是还有剩余空间，但是因为flex-grow是0，因此没有填充补足-->
+    <!--    <span>露露</span>-->
+    <!--    <span>悄悄</span>-->
+    <!--    <span>阴影</span>-->
+    <!--    <span>宝宝</span>-->
+    <!--    <span>谢谢</span>-->
+    <!--    <span>测测</span>-->
+    <!--    <span>慢慢</span>-->
+    <!--    <span>呵呵</span>-->
+    <!--    子元素们很多，实际宽度已超过父宽，但由于flex-shrink是1，因此会缩小，表现效果就是文字换行了-->
+</div>
+
+<div class="money">
+    <div class="zhang">范张</div>
+    <span class="xin">范鑫</span>
+    <span class="xu">范旭</span>
+    <span class="shuai">范帅</span>
+    <span class="ge">范各</span>
+</div>
+</body>
+</html>

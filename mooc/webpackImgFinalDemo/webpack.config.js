@@ -43,8 +43,8 @@ module.exports = {
     plugins: [
         // 在html文件里面通过<script src="main.js"></script>引入js文件
         new HtmlWebpackPlugin({
-            template: 'index.html',
-            filename: 'index.html'
+            template: 'index.art',
+            filename: 'index.art'
         }),
         // 这个只需要在output的时候输出就行了，不需要引入
         // 服从output指挥，放在dist目录下

@@ -30,7 +30,7 @@ module.exports = {
         // 在html文件里面通过<script src="main.js"></script>引入js文件
         new HtmlWebpackPlugin({
             template: './src/index.art',
-            filename: 'index.html',
+            filename: 'index.art',
             chunks: ['index']
         }),
         new HtmlWebpackPlugin({

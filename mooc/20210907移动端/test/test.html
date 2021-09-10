@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="../图标字体/css/iconfont.css">
+    <style>
+        .icon-weibo {
+            font-size: 200px;
+            color: rebeccapurple;
+        }
+
+        .box-0 {
+            display: flex;
+            width: 500px;
+            background-color: pink;
+        }
+
+        .box-0 div {
+            flex-basis: 120px;
+            border: 3px solid rgba(0, 0, 0, .2);
+            background-color: green;
+        }
+
+        #content {
+            margin-top: 20px;
+            display: flex;
+            width: 500px;
+        }
+
+        #content div {
+            flex-basis: 120px;
+            border: 3px solid rgba(0, 0, 0, .2);
+        }
+
+        .box {
+            flex-shrink: 0;
+        }
+
+        .box1 {
+            flex-shrink: 1;
+        }
+    </style>
+</head>
+<body>
+<i class="iconfont icon-weibo"></i>
+<div class="box-0">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+    <div class="child">4</div>
+    <div class="child">5</div>
+</div>
+
+<div id="content">
+    <div class="box" style="background-color:red;">A</div>
+    <div class="box" style="background-color:lightblue;">B</div>
+    <div class="box" style="background-color:yellow;">C</div>
+    <div class="box1" style="background-color:brown;">D</div>
+    <div class="box1" style="background-color:lightgreen;">E</div>
+</div>
+</body>
+</html>

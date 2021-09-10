@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*过渡动画*/
+            /*transition: transform 1s;*/
+        }
+    </style>
+</head>
+<body>
+<button id="btn">start</button>
+<div class="box" id="box"></div>
+<script>
+    let btn = document.getElementById('btn');
+    let box = document.getElementById('box');
+    let distance = window.innerWidth - box.offsetWidth;
+
+    /*btn.addEventListener('click', function () {
+        // gpu加速
+        box.style.transform = `translate3d(${distance}px,0,0)`
+    }, false);*/
+
+    // 动画方式2：这个时候就不要transition过渡样式了
+    const requestAnimationFrame = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        function (fn) {
+            setTimeout(fn, 16)
+        }
+
+    let speed = 10;
+    let position = 0;
+    btn.addEventListener('click', function () {
+        // 调用一次只执行一帧
+        requestAnimationFrame(step);
+    }, false);
+
+    function step() {
+        // 判断是否运动完
+        if (position < distance) {
+            position += speed;
+            box.style.transform = `translate3d(${position}px,0,0)`;
+            // 当前帧运动完之后，继续运动下一帧
+            requestAnimationFrame(step)
+        } else {
+            position = distance;
+            box.style.transform = `translate3d(${position}px,0,0)`;
+        }
+    }
+</script>
+</body>
+</html>

@@ -70,7 +70,7 @@ module.exports = {
         // 依赖注入模版
         new HtmlWebpackPlugin({
             template: './src/pages/index/index.art',
-            filename: 'index.html'
+            filename: 'index.art'
         }),
     ]
 }
