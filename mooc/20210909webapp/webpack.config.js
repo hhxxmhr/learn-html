@@ -25,8 +25,8 @@ module.exports = {
         // 路径别名
         alias: {
             api: resolve('src/api'),
-            icons: resolve('src/asserts/icons'),
-            styles: resolve('src/asserts/icons'),
+            icons: resolve('src/assert/icons'),
+            styles: resolve('src/assert/styles'),
             components: resolve('src/components'),
             pages: resolve('src/pages'),
             utils: resolve('src/utils')
