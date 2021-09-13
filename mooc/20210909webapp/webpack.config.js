@@ -59,7 +59,7 @@ module.exports = {
             },
             // 字体
             {
-                test: /\.(woff2?|eto|ttf|otf)$/,
+                test: /\.(woff2?|eot|ttf|otf)$/,
                 loader: 'url-loader',
                 options: {
                     // 小于10k的图片转成base64编码的dataURL字符串写到代码中
