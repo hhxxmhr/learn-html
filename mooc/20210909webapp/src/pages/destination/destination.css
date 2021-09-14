@@ -1,0 +1,17 @@
+.header-layout {
+    width: 100%;
+    height: 149px;
+}
+
+.header-layout .searchbox {
+    width: 89.3333%;
+}
+
+.main-layout {
+    position: absolute;
+    top: 149px;
+    bottom: 48px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+}

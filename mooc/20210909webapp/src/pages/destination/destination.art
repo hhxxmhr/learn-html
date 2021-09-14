@@ -6,15 +6,23 @@
     <title>目的地</title>
 </head>
 <body>
-<!--头部-->
+
 <div id="destination-page" class="destination-layout">
 
 </div>
+<!--头部-->
+<header class="header-layout">
+
+</header>
 <!--主体-->
 <div class="main-layout"></div>
 <!--标签栏-->
 <div class="tabbar-layout">
-    <%include('../../components/tabbar/tabbar.art')%>
+    <% include('../../components/tabbar/tabbar.art',{active:'destination'}) %>
+</div>
+<!--    返回顶部-->
+<div class="backtop-layout">
+    {{include '../../components/backtop/backtop.art'}}
 </div>
 </body>
 </html>
