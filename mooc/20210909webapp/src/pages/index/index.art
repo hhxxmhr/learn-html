@@ -12,9 +12,9 @@
         {{include './components/header/header.art'}}
     </header>
     <!--    幻灯片-->
-    <!--<div id="index-slider" class="slider-layout">
-        幻灯片
-    </div>-->
+    <div id="index-slider" class="slider-layout">
+        {{include '../../components/loading/loading.art'}}
+    </div>
     <!--    导航-->
     <!--    <nav id="index-nav" class="nav-layout">-->
     <!--        导航-->

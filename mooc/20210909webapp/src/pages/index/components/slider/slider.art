@@ -1,16 +1,13 @@
 <!--https://www.swiper.com.cn/usage/index.html-->
 <div class="swiper-container">
     <div class="swiper-wrapper">
+        {{each imgs}}
         <div class="swiper-slide">
             <a href="javascript:;">
-                <img src="./images/slider_1.jpg" alt="tu" class="swiper-img">
+                <img src="{{$value.url}}" alt="tu" class="swiper-img">
             </a>
         </div>
-        <div class="swiper-slide">
-            <a href="javascript:;">
-                <img src="./images/slider_2.jpg" alt="tu" class="swiper-img">
-            </a>
-        </div>
+        {{/each}}
     </div>
     <!-- 如果需要分页器 -->
     <div class="swiper-pagination"></div>

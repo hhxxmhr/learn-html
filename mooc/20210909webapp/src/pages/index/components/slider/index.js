@@ -6,21 +6,33 @@ import './slider.css'
 // 引入swiper的js文件
 import Swiper from "swiper/swiper-bundle.min";
 
-// https://www.swiper.com.cn/api/index.html
-new Swiper('.swiper-container', {
-    // 循环模式选项目
-    loop: true,
-    // 是否需要分页器
-    pagination: {
-        el: '.swiper-pagination'
-    },
-    // 是否需要前进后退按钮
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-    },
-    // 是否需要滚动条
-    /*scrollbar: {
-        el: '.swiper-scrollbar'
-    }*/
-})
+// 引入slider模版
+import render from './slider.art';
+import {getData, getDelayedData} from 'api/getData';
+
+getData('https://www.imooc.com/api/mall-wepApp/index/slider').then(data => {
+    document.getElementById('index-slider').innerHTML = render({
+        imgs: data
+    });
+    // https://www.swiper.com.cn/api/index.html
+    new Swiper('.swiper-container', {
+        // 循环模式选项目
+        loop: true,
+        // 是否需要分页器
+        pagination: {
+            el: '.swiper-pagination'
+        },
+        // 是否需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        },
+        // 是否需要滚动条
+        /*scrollbar: {
+            el: '.swiper-scrollbar'
+        }*/
+    })
+});
+
+
+// 请求接口 https://www.imooc.com/api/mall-wepApp/index/slider
