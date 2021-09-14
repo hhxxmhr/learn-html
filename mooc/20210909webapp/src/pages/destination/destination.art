@@ -15,7 +15,9 @@
     {{include './components/header/header.art'}}
 </header>
 <!--主体-->
-<div class="main-layout"></div>
+<div class="main-layout">
+    {{include './components/main/main.art'}}
+</div>
 <!--标签栏-->
 <div class="tabbar-layout">
     <% include('../../components/tabbar/tabbar.art',{active:'destination'}) %>
