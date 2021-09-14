@@ -16,9 +16,9 @@
         {{include '../../components/loading/loading.art'}}
     </div>
     <!--    导航-->
-    <!--    <nav id="index-nav" class="nav-layout">-->
-    <!--        导航-->
-    <!--    </nav>-->
+    <nav id="index-nav" class="nav-layout">
+        {{include '../../components/loading/loading.art'}}
+    </nav>
     <!--    精选折扣-->
     <!--    <div id="index-product" class="product-layout">-->
     <!--        精选折扣-->

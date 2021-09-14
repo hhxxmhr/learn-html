@@ -47,7 +47,7 @@ module.exports = {
             },
             // 图片
             {
-                test: /\.(jpg|jpe?g|svg|gif)$/,
+                test: /\.(jpg|jpe?g|svg|gif|png)$/,
                 loader: 'url-loader',
                 options: {
                     // 小于10k的图片转成base64编码的dataURL字符串写到代码中
@@ -84,7 +84,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/pages/destination/destination.art',
             filename: 'destination.html',
-            // 只会引入自己响应的index.js
+            // 只会引入自己相应的index.js
             chunks: ['destination']
         }),
 

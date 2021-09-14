@@ -1,0 +1,31 @@
+.nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 25px;
+}
+
+.nav-item {
+    /*flex: 1;*/
+    width: 25%;
+    margin-bottom: 20px;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #999999;
+    font-size: 12px;
+}
+
+.nav-img {
+    /*相对于父容器a标签 375px/4 =93.74px*/
+    width: 46.9333333%; /*44px/93.74px /*/
+    margin-bottom: 5px;
+}
+
+.nav-text {
+
+}
