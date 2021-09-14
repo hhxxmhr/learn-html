@@ -20,9 +20,9 @@
         {{include '../../components/loading/loading.art'}}
     </nav>
     <!--    精选折扣-->
-    <!--    <div id="index-product" class="product-layout">-->
-    <!--        精选折扣-->
-    <!--    </div>-->
+    <div id="index-product" class="product-layout">
+        {{include './components/product/product.art'}}
+    </div>
     <!--    标签栏-->
     <div class="tabbar-layout">
         标签栏

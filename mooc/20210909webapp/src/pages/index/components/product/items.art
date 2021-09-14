@@ -1,0 +1,11 @@
+{{each items}}
+<li class="product-item">
+    <a href="./details.html?id={{$value.id}}" class="product-link">
+        <p class="product-pic">
+            <img src="./images/product_1.jpg" alt="tu" class="product-img">
+        </p>
+        <p class="product-name">{{$value.name}}</p>
+        <p class="product-price">{{$value.price}}</p>
+    </a>
+</li>
+{{/each}}

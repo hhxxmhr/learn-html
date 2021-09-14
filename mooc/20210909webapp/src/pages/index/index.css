@@ -1,5 +1,7 @@
 .index-layout {
     height: 100%;
+    /*将标签栏的部分空出来*/
+    padding-bottom: 48px;
     overflow: auto;
 }
 
@@ -23,7 +25,8 @@
 }
 
 .slider-layout .loading,
-.nav-layout .loading {
+.nav-layout .loading,
+.product-layout .loading {
     padding: 60px 0;
 }
 
