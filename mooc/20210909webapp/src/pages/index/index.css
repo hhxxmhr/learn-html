@@ -13,6 +13,10 @@
     background-color: #fff;
 }
 
+.header-layout .searchbox {
+    width: 89.3333%;
+}
+
 .slider-layout,
 .nav-layout,
 .product-layout {

@@ -3,8 +3,43 @@
     align-items: center;
     width: 100%;
     height: 30px;
+    padding: 0 20px;
     border-radius: 27px;
     background-color: rgba(0, 0, 0, .2);
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .05);
 
+}
+
+.searchbox .icon-search {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.searchbox-form {
+    margin-left: 6px;
+    flex: 1;
+}
+
+.searchbox-input {
+    width: 100%;
+    background: none;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+/*placeholder的兼容性，直接复制*/
+.searchbox-input::-webkit-input-placeholder {
+    color: #ffffff;
+}
+
+.searchbox-input::-moz-placeholder {
+    color: #ffffff;
+}
+
+.searchbox-input:-moz-placeholder {
+    color: #ffffff;
+}
+
+.searchbox-input:-ms-input-placeholder {
+    color: #ffffff;
 }
