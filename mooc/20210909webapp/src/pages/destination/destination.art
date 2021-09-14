@@ -12,7 +12,7 @@
 </div>
 <!--头部-->
 <header class="header-layout">
-
+    {{include './components/header/header.art'}}
 </header>
 <!--主体-->
 <div class="main-layout"></div>
