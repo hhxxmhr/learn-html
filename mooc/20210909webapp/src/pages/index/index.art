@@ -25,7 +25,7 @@
     </div>
     <!--    标签栏-->
     <div class="tabbar-layout">
-        标签栏
+        <% include('../../components/tabbar/tabbar.art',{active:'index'}) %>
     </div>
     <!--    返回顶部-->
     <div class="backtop-layout">
