@@ -1,5 +1,5 @@
 import Backtop from 'components/backtop';
 
-const scrollContainer = document.getElementById('destination-page');
-const backtopEl = scrollContainer.querySelector('.backtop');
-new Backtop(backtopEl, window.innerHeight, scrollContainer)
+const scrollContainer = document.querySelector('.main-layout');
+const backtopEl = document.querySelector('.destination-layout .backtop');
+new Backtop(backtopEl, scrollContainer.offsetHeight, scrollContainer)
