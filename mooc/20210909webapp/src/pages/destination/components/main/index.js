@@ -22,6 +22,7 @@ tabEl.addEventListener('click', function (ev) {
         const storageContent = get(storageName);
         // 从本地缓存里面取数据
         if (storageContent) {
+            // 直接取得数据就不用发送请求了
             tab.setItemActive(index);
             content.setData(storageContent);
         } else {
