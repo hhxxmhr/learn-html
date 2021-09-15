@@ -1,5 +1,18 @@
 <ul class="content">
     <li class="content-item">
-        <img src="./images/content_1.jpg" alt="">
+        <img src="./images/content_1.jpg" alt="" class="content-img">
+        <span class="content-text">中国</span>
+    </li>
+    <li class="content-item">
+        <img src="./images/content_2.jpg" alt="" class="content-img">
+        <span class="content-text">新加坡</span>
+    </li>
+    <li class="content-item">
+        <img src="./images/content_1.jpg" alt="" class="content-img">
+        <span class="content-text">法国</span>
+    </li>
+    <li class="content-item">
+        <img src="./images/content_2.jpg" alt="" class="content-img">
+        <span class="content-text">米国</span>
     </li>
 </ul>

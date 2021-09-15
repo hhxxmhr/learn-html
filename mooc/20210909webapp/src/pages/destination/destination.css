@@ -12,6 +12,7 @@
     position: absolute;
     top: 149px;
     bottom: 48px;
+    /*这样可以围城整个区域，高度占满，不用给固定值了*/
     left: 0;
     right: 0;
     background-color: #fff;

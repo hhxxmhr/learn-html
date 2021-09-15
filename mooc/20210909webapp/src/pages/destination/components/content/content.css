@@ -1,0 +1,32 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 20px 0 0;
+}
+
+.content-item {
+    position: relative;
+    width: 50%;
+    padding: 0 0 20px 20px;
+}
+
+.content-img {
+    width: 100%;
+}
+
+.content-text {
+    position: absolute;
+    /*对应父级的 padding: 0 0 20px 20px;*/
+    bottom: 20px;
+    left: 20px;
+    /*这样就围城了覆盖框*/
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    /*文字垂直居中显示*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+}
