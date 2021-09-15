@@ -1,9 +1,11 @@
 <ul class="content">
+    {{each contents}}
     <li class="content-item">
-        <img src="./images/content_1.jpg" alt="" class="content-img">
-        <span class="content-text">中国</span>
+        <img src="{{$value.url}}" alt="" class="content-img">
+        <span class="content-text">{{$value.text}}</span>
     </li>
-    <li class="content-item">
+    {{/each}}
+    <!--<li class="content-item">
         <img src="./images/content_2.jpg" alt="" class="content-img">
         <span class="content-text">新加坡</span>
     </li>
@@ -14,5 +16,5 @@
     <li class="content-item">
         <img src="./images/content_2.jpg" alt="" class="content-img">
         <span class="content-text">米国</span>
-    </li>
+    </li>-->
 </ul>
