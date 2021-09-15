@@ -20,8 +20,14 @@ class Tab {
 
     // 设置样式并获取相应的数据
     to(index) {
+        // todo 取消上一次请求--当一连点击了好几次tab的时候，并不能确定最终返回的数据是最后一次点击的
+        if (this.dataPromise && this.dataPromise.xhr) {
+            this.dataPromise.xhr.abort();
+        }
+
         this.setItemActive(index);
-        return getData(`${URL}/${this.itemEls[index].dataset.id}`);// 获取是因为系统产生的原因呢
+        this.dataPromise = getData(`${URL}/${this.itemEls[index].dataset.id}`);
+        return this.dataPromise;
     }
 }
 
