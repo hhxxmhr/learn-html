@@ -26,7 +26,6 @@ class Backtop {
 
     // 绑定事件
     bindEvent() {
-        console.log(this.el)
         // 点击事件
         this.el.addEventListener('click', () => {
             this.scrollTo();

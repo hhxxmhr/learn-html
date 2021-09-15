@@ -8,7 +8,6 @@ class Content {
     }
 
     setData(data) {
-        console.log(data)
         this.el.innerHTML = render({
             contents: data
         })
