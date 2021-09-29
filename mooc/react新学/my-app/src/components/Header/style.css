@@ -1,0 +1,8 @@
+.app-header-logo {
+    height: 45px;
+}
+
+.app-header-menu {
+    line-height: 45px !important;
+    border-bottom: none !important;
+}
