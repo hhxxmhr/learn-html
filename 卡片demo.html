@@ -65,6 +65,30 @@
     .detail span {
         color: #ff8500;
     }
+
+    .tests {
+        margin-top: 20px;
+        width: 400px;
+        height: 60px;
+        background-color: pink;
+        display: flex;
+        color: #0c63e4;
+    }
+
+    .test {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .test:first-child {
+        background-color: green;
+    }
+
+    .test:last-child {
+        background-color: yellowgreen;
+    }
 </style>
 <body>
 <div class="box">
@@ -76,6 +100,10 @@
         <em>|</em>
         <span>99.9元</span>
     </div>
+</div>
+<div class="tests">
+    <div class="test">12</div>
+    <div class="test">34</div>
 </div>
 </body>
 </html>
