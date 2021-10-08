@@ -25,16 +25,16 @@
   </div>
   <div class="classify">
     <ul class="navs">
-      <li class="navs__item" v-for="(i, index) in 10" :key="index">
+      <li class="navs__item" v-for="(item, index) in navs" :key="index">
         <a href="javascript:;" class="navs__item__link">
           <p class="navs__item__pic">
             <img
-              src="http://www.dell-lee.com/imgs/vue3/超市.png"
+              :src="`http://www.dell-lee.com/imgs/vue3/${item.imgName}.png`"
               alt=""
               class="navs__item__pic__img"
             />
           </p>
-          <span class="nav__title">京东超市</span>
+          <span class="nav__title">{{ item.title }}</span>
         </a>
       </li>
     </ul>
@@ -43,7 +43,44 @@
 </template>
 <script>
 export default {
-  name: 'StaticPart'
+  name: 'StaticPart',
+  setup () {
+    const navs = [
+      {
+        imgName: '菜市场',
+        title: '菜市场'
+      }, {
+        imgName: '水果店',
+        title: '水果店'
+      }, {
+        imgName: '鲜花',
+        title: '鲜花绿植'
+      }, {
+        imgName: '医药健康',
+        title: '医药健康'
+      }, {
+        imgName: '家居',
+        title: '家居时尚'
+      }, {
+        imgName: '超市',
+        title: '京东超市'
+      }, {
+        imgName: '蛋糕',
+        title: '烘焙蛋糕'
+      }, {
+        imgName: '签到',
+        title: '签到'
+      }, {
+        imgName: '大牌免运',
+        title: '大牌免运'
+      },
+      {
+        imgName: '红包',
+        title: '红包套餐'
+      }
+    ]
+    return { navs }
+  }
 }
 </script>
 
