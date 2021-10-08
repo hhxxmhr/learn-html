@@ -1,37 +1,42 @@
 <template>
   <ul class="footer">
-    <li class="footer__item">
+    <li class="footer__item" v-for="(item,index) in tabs" :key="index">
       <a
         href="javascript:;"
-        class="footer__item__link footer__item__link--active"
+        class="footer__item__link"
+        :class="{'footer__item__link--active':index===0}"
       >
-        <p class="iconfont">&#xe60e;</p>
-        首页
-      </a>
-    </li>
-    <li class="footer__item">
-      <a href="javascript:;" class="footer__item__link">
-        <p class="iconfont">&#xe60d;</p>
-        购物车
-      </a>
-    </li>
-    <li class="footer__item">
-      <a href="javascript:;" class="footer__item__link">
-        <p class="iconfont">&#xe60f;</p>
-        订单
-      </a>
-    </li>
-    <li class="footer__item">
-      <a href="javascript:;" class="footer__item__link">
-        <p class="iconfont">&#xe617;</p>
-        我的
+        <!--图标使用的是v-html，让他不要转义，显示成&#xe60f；-->
+        <p class="iconfont" v-html="item.icon"></p>
+        {{ item.text }}
       </a>
     </li>
   </ul>
 </template>
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  setup () {
+    const tabs = [
+      {
+        icon: '&#xe60e;',
+        text: '首页'
+      },
+      {
+        icon: '&#xe60f;',
+        text: '购物车'
+      },
+      {
+        icon: '&#xe60f;',
+        text: '订单'
+      },
+      {
+        icon: '&#xe617;',
+        text: '我的'
+      }
+    ]
+    return { tabs }
+  }
 }
 </script>
 
