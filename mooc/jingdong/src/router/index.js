@@ -10,7 +10,13 @@ const routes = [
   }, {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    // 登录后再访问登录路由，直接跳转到首页
+    beforeEnter (to, from, next) {
+      // 进入这个路由之前执行
+      const { isLogin } = localStorage
+      isLogin ? next({ name: 'Home' }) : next()
+    }
   }
   // {
   //   path: '/about',
@@ -25,6 +31,16 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+// 每次路由切换时执行
+router.beforeEach((to, from, next) => {
+  const { isLogin } = localStorage
+  if (isLogin || to.name === 'Login') {
+    next()
+  } else {
+    next({ name: 'Login' })
+  }
 })
 
 export default router

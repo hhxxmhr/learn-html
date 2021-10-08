@@ -10,20 +10,31 @@
       <input type="text" class="wrapper__input__content" placeholder="请输入密码">
     </div>
     <div class="wrapper__login">
-      <div class="wrapper__login__button">登录</div>
+      <div class="wrapper__login__button" @click="login">登录</div>
       <div class="wrapper__login__link">立即注册</div>
     </div>
   </div>
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
+
 export default {
-  name: 'Login'
+  name: 'Login',
+  setup () {
+    const router = useRouter()
+    const login = () => {
+      localStorage.isLogin = true
+      router.push({ name: 'Home' })
+    }
+    return { login }
+  }
 }
 </script>
 
 <style scoped lang="scss">
 @import "../../style/viriables.scss";
+
 .wrapper {
   //  不确定高度，但是可以定位为垂直居中
   position: absolute;
