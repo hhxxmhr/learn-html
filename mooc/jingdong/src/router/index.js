@@ -1,13 +1,25 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/home/Home'
 import Login from '../views/login/Login'
+import Register from '../views/register/Register'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
-  }, {
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+    beforeEnter (to, from, next) {
+      // 进入这个路由之前执行
+      const { isLogin } = localStorage
+      isLogin ? next({ name: 'Home' }) : next()
+    }
+  },
+  {
     path: '/login',
     name: 'Login',
     component: Login,
@@ -36,7 +48,7 @@ const router = createRouter({
 // 每次路由切换时执行
 router.beforeEach((to, from, next) => {
   const { isLogin } = localStorage
-  if (isLogin || to.name === 'Login') {
+  if (isLogin || to.name === 'Login' || to.name === 'Register') {
     next()
   } else {
     next({ name: 'Login' })
