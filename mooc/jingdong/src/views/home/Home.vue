@@ -1,16 +1,15 @@
 <template>
   <div class="wrapper">
-      <StaticPart />
-    <div class="nearby__box">
-    <Nearby />
-    </div>
+    <StaticPart/>
+    <Nearby/>
   </div>
-  <Footer />
+  <Footer/>
 </template>
 <script>
 import StaticPart from './StaticPart'
 import Nearby from './Nearby'
 import Footer from '../../components/Footer'
+
 export default {
   name: 'Home',
   components: {
@@ -24,6 +23,7 @@ export default {
 <style lang="scss">
 @import "../../style/viriables.scss";
 @import "../../style/mixins.scss";
+
 .wrapper {
   overflow-y: auto;
   box-sizing: border-box;

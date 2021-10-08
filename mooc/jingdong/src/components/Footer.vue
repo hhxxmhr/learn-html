@@ -1,5 +1,5 @@
 <template>
-<ul class="footer">
+  <ul class="footer">
     <li class="footer__item">
       <a
         href="javascript:;"
@@ -37,6 +37,7 @@ export default {
 
 <style lang="scss">
 @import "../style/viriables.scss";
+
 .footer {
   display: flex;
   position: absolute;
@@ -55,9 +56,11 @@ export default {
     &__link {
       font-size: 0.1rem;
       color: $content-fontcolor;
+
       &--active {
         color: #1fa4fc;
       }
+
       .iconfont {
         margin: 0.07rem 0 0.02rem 0;
         font-size: 0.18rem;

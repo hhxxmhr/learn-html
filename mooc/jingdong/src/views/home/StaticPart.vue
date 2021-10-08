@@ -50,26 +50,31 @@ export default {
 <style lang="scss">
 @import "../../style/viriables.scss";
 @import "../../style/mixins.scss";
+
 .position {
   position: relative;
   padding: 0.16rem 0.24rem 0.16rem 0.24rem;
   line-height: 0.22rem;
   font-size: 0.16rem;
   @include ellipsis;
+
   &__icon {
     position: absolute;
     top: 0.16rem;
     left: 0;
   }
+
   &__bell {
     position: absolute;
     top: 0.16rem;
     right: 0;
   }
+
   .iconfont {
     font-size: 0.18rem;
   }
 }
+
 .search {
   display: flex;
   align-items: center;
@@ -77,9 +82,11 @@ export default {
   padding: 0 0.2rem;
   border-radius: 0.16rem;
   background-color: #f5f5f5;
+
   &__form {
     margin-left: 0.08rem;
     flex: 1;
+
     &__input {
       width: 100%;
       background: none;
@@ -89,6 +96,7 @@ export default {
     }
   }
 }
+
 .banner {
   margin-top: 0.16rem;
   // 当图片加载慢的时候，他下面的内容会先加载出来，等到图片加载完成时，下面的内容会移动位置到下面---抖动效果
@@ -99,16 +107,20 @@ export default {
     width: 100%;
   }
 }
+
 .classify {
   margin-top: 0.16rem;
+
   .navs {
     // 最外层设置了padding之后，要是又想取消，设置margin 左右负值
     // margin: 0 -0.18rem;
     display: flex;
     flex-wrap: wrap;
+
     &__item {
       width: 20%;
       margin-bottom: 0.15rem;
+
       &__link {
         display: flex;
         flex-direction: column;
@@ -116,8 +128,10 @@ export default {
         align-items: center;
         color: $content-fontcolor;
       }
+
       &__pic {
         margin-bottom: 0.04rem;
+
         &__img {
           width: 0.4rem;
           height: 0.4rem;
@@ -126,6 +140,7 @@ export default {
     }
   }
 }
+
 .gap {
   height: 0.1rem;
   background-color: #f1f1f1;
