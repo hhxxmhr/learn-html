@@ -9,16 +9,21 @@
     </div>
     <!--    可解决未加载完图片，显示裂图的情况-->
     <NearbyItem :item="item" :has-border="false" v-show="item.imgUrl"/>
+    <Content/>
   </div>
 </template>
 
 <script>
 import NearbyItem from '../../components/NearbyItem'
 import { useRouter, useRoute } from 'vue-router'
+import Content from './Content'
 
 export default {
   name: 'Shop',
-  components: { NearbyItem },
+  components: {
+    Content,
+    NearbyItem
+  },
   setup () {
     // 大的整体的路由信息
     const router = useRouter()
