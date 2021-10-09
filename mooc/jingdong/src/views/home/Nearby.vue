@@ -1,6 +1,8 @@
 <template>
   <h3 class="title">附近店铺</h3>
-  <NearbyItem v-for="(item,index) in nearby" :key="index" :item="item" :has-border="true"/>
+  <router-link to="/shop" v-for="(item,index) in nearby" :key="index">
+    <NearbyItem :item="item" :has-border="true"/>
+  </router-link>
 </template>
 <script>
 import NearbyItem from '../../components/NearbyItem'
