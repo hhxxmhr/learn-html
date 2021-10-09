@@ -4,32 +4,87 @@
       <img src="http://www.dell-lee.com/imgs/vue3/user.png" alt="user" class="wrapper__pic__img">
     </div>
     <div class="wrapper__input">
-      <input type="text" class="wrapper__input__content" placeholder="请输入手机号">
+      <input type="text" class="wrapper__input__content" placeholder="请输入手用户名" v-model="username">
     </div>
     <div class="wrapper__input">
-      <input type="password" class="wrapper__input__content" placeholder="请输入密码" autocomplete="new-password">
+      <input type="password" class="wrapper__input__content" placeholder="请输入密码" autocomplete="new-password"
+             v-model="password">
     </div>
     <div class="wrapper__input">
-      <input type="password" class="wrapper__input__content" placeholder="确认密码">
+      <input type="password" class="wrapper__input__content" placeholder="确认密码" v-model="ensurement">
     </div>
     <div class="wrapper__register">
-      <div class="wrapper__register__button" @click="register">注册</div>
+      <div class="wrapper__register__button" @click="handleRegister">注册</div>
       <router-link :to="{name:'Login'}">
         <div class="wrapper__register__link">已有账号去登录</div>
       </router-link>
     </div>
+    <Toast v-if="toastData.showToast" :message="toastData.toastMessage"/>
   </div>
 </template>
 
 <script>
-// import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
+import Toast, { useToastEffect } from '../../components/Toast'
+import { reactive, toRefs } from 'vue'
+import axios from 'axios'
 
+// 注册相关逻辑
+const useRegisterEffect = (showToast) => {
+  const router = useRouter()
+  const data = reactive({
+    username: '',
+    password: '',
+    ensurement: ''
+  })
+  const handleRegister = async () => {
+    try {
+      const result = await axios.post('/api/user/register', {
+        username: data.username,
+        password: data.password
+      })
+      if (result?.errno === 0) {
+        await router.push({ name: 'Login' })
+      } else {
+        showToast('注册失败')
+      }
+    } catch (e) {
+      showToast('请求失败')
+    }
+  }
+  const {
+    username,
+    password,
+    ensurement
+  } = toRefs(data)
+  return {
+    username,
+    password,
+    ensurement,
+    handleRegister
+  }
+}
 export default {
   name: 'Register',
+  components: { Toast },
   setup () {
-    const register = () => {
+    const {
+      toastData,
+      showToast
+    } = useToastEffect()
+    const {
+      username,
+      password,
+      ensurement,
+      handleRegister
+    } = useRegisterEffect(showToast)
+    return {
+      username,
+      password,
+      ensurement,
+      toastData,
+      handleRegister
     }
-    return { register }
   }
 }
 </script>
