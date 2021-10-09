@@ -7,7 +7,7 @@
       <input type="text" class="wrapper__input__content" placeholder="请输入手机号">
     </div>
     <div class="wrapper__input">
-      <input type="password" class="wrapper__input__content" placeholder="请输入密码">
+      <input type="password" class="wrapper__input__content" placeholder="请输入密码" autocomplete="new-password">
     </div>
     <div class="wrapper__input">
       <input type="password" class="wrapper__input__content" placeholder="确认密码">
