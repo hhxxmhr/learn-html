@@ -7,19 +7,26 @@
         <input class="search__content__input" placeholder="请输入商品名称"/>
       </div>
     </div>
-    <NearbyItem :item="item" :has-border="false"/>
+    <!--    可解决未加载完图片，显示裂图的情况-->
+    <NearbyItem :item="item" :has-border="false" v-show="item.imgUrl"/>
   </div>
 </template>
 
 <script>
 import NearbyItem from '../../components/NearbyItem'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'Shop',
   components: { NearbyItem },
   setup () {
+    // 大的整体的路由信息
     const router = useRouter()
+    // 当前路由的信息
+    const route = useRoute()
+    // 获取路由参数
+    const id = route.params.id
+    console.log(id)
     const item = {
       imgUrl: 'http://www.dell-lee.com/imgs/vue3/near.png',
       title: '沃尔玛',

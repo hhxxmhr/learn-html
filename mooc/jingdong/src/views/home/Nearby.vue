@@ -1,6 +1,6 @@
 <template>
   <h3 class="title">附近店铺</h3>
-  <router-link to="/shop" v-for="(item,index) in nearby" :key="index">
+  <router-link v-for="(item,index) in nearby" :key="index" :to="`/shop/${item.id}`">
     <NearbyItem :item="item" :has-border="true"/>
   </router-link>
 </template>
@@ -13,6 +13,7 @@ export default {
   setup () {
     const nearby = [
       {
+        id: 1,
         imgUrl: 'http://www.dell-lee.com/imgs/vue3/near.png',
         title: '沃尔玛',
         tags: ['月售1万+', '起送¥0', '基础运费¥5'],
