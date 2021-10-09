@@ -16,20 +16,31 @@
       </router-link>
     </div>
   </div>
+  <Toast v-if="toastData.showToast" :message="toastData.toastMessage"/>
 </template>
 
 <script>
 import { useRouter } from 'vue-router'
+import Toast, { useToastEffect } from '../../components/Toast'
 
 export default {
   name: 'Login',
+  components: { Toast },
   setup () {
     const router = useRouter()
+    const {
+      toastData,
+      showToast
+    } = useToastEffect()
     const login = () => {
       localStorage.isLogin = true
+      showToast('23333')
       router.push({ name: 'Home' })
     }
-    return { login }
+    return {
+      login,
+      toastData
+    }
   }
 }
 </script>
