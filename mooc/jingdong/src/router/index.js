@@ -1,18 +1,15 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/home/Home'
-import Login from '../views/login/Login'
-import Register from '../views/register/Register'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import(/* webpackChunkName: "home" */ '../views/home/Home')
   },
   {
     path: '/register',
     name: 'Register',
-    component: Register,
+    component: () => import(/* webpackChunkName: "register" */ '../views/register/Register'),
     beforeEnter (to, from, next) {
       // 进入这个路由之前执行
       const { isLogin } = localStorage
@@ -22,7 +19,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: Login,
+    component: () => import(/* webpackChunkName: "login" */ '../views/login/Login'),
     // 登录后再访问登录路由，直接跳转到首页
     beforeEnter (to, from, next) {
       // 进入这个路由之前执行
