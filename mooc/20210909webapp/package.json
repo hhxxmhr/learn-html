@@ -4,7 +4,7 @@
   "description": "暮云游商城移动端",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open 'google chrome'"
+    "start": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",

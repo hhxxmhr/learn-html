@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<link as="script" rel="preload" href="index.js">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<!--<img src="https://www.gaoguang.com/uploads/allimg/200814/2-200Q4164038.jpg" alt="">-->
+<script>
+    let img = document.createElement('img');
+    img.src = "https://www.gaoguang.com/uploads/allimg/200814/2-200Q4164038.jpg";
+    document.body.appendChild(img);
+</script>
+<script src="https://js.driftt.com/core/assets/js/main~493df0b3.580db5ef.chunk.js"></script>
+<script>
+    let script = document.createElement('script');
+    script.src = "index.js";
+    script.async = false;
+    document.body.appendChild(script);
+</script>
+</body>
+</html>
+<!--同源策略
+协议（https）、域名（://www.baidu.com）、端口号（443），任何一个不一样就是跨域
+不同域之间的请求，就是跨域请求
+阻止跨域请求就是浏览器本身的一种安全策略，即同源策略
+解决方案：优先CORS跨域资源共享，如果浏览器不支持CORS，再使用JSONP
+-->

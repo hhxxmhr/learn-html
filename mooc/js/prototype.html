@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+<script>
+    function People(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    let people = new People('HAH', 11);
+    console.log(People)
+    console.log(people.__proto__)
+</script>
+</body>
+</html>
